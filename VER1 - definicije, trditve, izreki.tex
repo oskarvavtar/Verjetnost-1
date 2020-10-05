@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+
+\usepackage{amsthm}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}[section]
+
+\newtheorem{lema}{Lema}
+\newtheorem{trditev}{Trditev}
+\newtheorem{izrek}{Izrek}
+\newtheorem*{dokaz}{Dokaz}
+
+\title{Verjetnost 1 - definicije, trditve in izreki}
+\author{Oskar Vavtar}
+\date{2020/21}
+
+\begin{document}
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\section{Neformalni uvod v verjetnost}
+
+\begin{definicija}[Verjetnost]
+
+Izvajamo poskus. Opazujemo določen pojav, ki ga imenujemo \textit{dogodek}. Poskus ponovimo $n$ - krat. \\
+Definirajmo \textit{frekvenco dogodka} $k_n(A)$ kot število ponovitev, pri katerih se dogodek zgodi. \\
+\textit{Relativna frekvenca} je definirana kot $f_n(A) = \frac{k_n(A)}{n}$.
+Zaporedje $\{f_n(A)\}_{n \in \mathbb{N}}$ konvergira k nekem številu $p \in [0, 1].$ \\
+\textsc{Statistična definicija verjetnosti} je definirana kot
+$$\mathbb{P}(A) = \lim_{n\to\infty} \{f_n(A)\}.$$
+\textsc{Klasična definicija verjetnosti} je definirana kot
+$$\mathbb{P}(A) = \frac{\text{št. ugodnih izidov A}}{\text{št. vseh izidov A}}.$$
+Če je izidov neskončno mnogo uporabimo geometrijsko definicijo verjetnosti.
+
+\end{definicija}
+
+\end{document}
