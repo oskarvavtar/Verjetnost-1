@@ -8,9 +8,19 @@
 \theoremstyle{definition}
 \newtheorem{definicija}{Definicija}[section]
 
+\theoremstyle{definition}
+\newtheorem{trditev}{Trditev}[section]
+
+\theoremstyle{definition}
+\newtheorem{izrek}{Izrek}[section]
+
+\theoremstyle{theorem}
+\newtheorem*{posledica}{Posledica}
+
+\theoremstyle{theorem}
+\newtheorem*{opomba}{Opomba}
+
 \newtheorem{lema}{Lema}
-\newtheorem{trditev}{Trditev}
-\newtheorem{izrek}{Izrek}
 \newtheorem*{dokaz}{Dokaz}
 
 \title{Verjetnost 1 - definicije, trditve in izreki}
@@ -23,7 +33,13 @@
 \tableofcontents
 \pagebreak
 
-\section{NEFORMALNI UVOD V VERJETNOST}
+% #################################################################################################
+
+\section{DEFINICIJA VERJETNOSTI}
+
+% *************************************************************************************************
+
+\subsection{Neformalni uvod v verjetnost}
 
 \begin{definicija}[Verjetnost]
 
@@ -38,5 +54,141 @@ $$\mathbb{P}(A) = \frac{\text{št. ugodnih izidov A}}{\text{št. vseh izidov A}}
 Če je izidov neskončno mnogo uporabimo geometrijsko definicijo verjetnosti.
 
 \end{definicija}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\subsection{Aksiomična definicija verjetnosti}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Imamo \textit{prostor vseh izidov} oz. \textit{vzorčni prostor} $\Omega$. \textit{Dogodki} so nekatere (ne nujno vse) podmnožice $\Omega$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}[Operacije na dogodkih]
+~
+\begin{enumerate}
+	\item \textsc{Vsota} oz. \textsc{unija} dogodkov:
+	$$A + B = A \cup B$$
+	je dogodek, ki se zgodi, če se zgodi vsaj eden od dogodkov $A$ in $B$. \\
+	\item \textsc{Produkt} oz. \textsc{presek} dogodkov:
+	$$A \cdot B = A \cap B$$
+	je dogodek, ki se zgodi, če se zgodita oba dogodka $A$ in $B$ hkrati.
+	\item \textsc{Nasprotni} dogodek oz. \textsc{komplement} dogodkov:
+	$$\bar{A} = A^C$$
+	je dogodek, ki se zgodi, če se dogodek $A$ ne zgodi.
+\end{enumerate}
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{opomba}
+
+Pravila za računanje z dogodki:
+\begin{enumerate}
+	\item Idempotentnost: 
+	$$A \cup A = A = A \cap A$$
+	\item Komutativnost:
+	$$A \cup B = B \cup A$$
+	$$A \cap B = B \cap A$$
+	\item Asociativnost:
+	$$(A \cup B) \cup C = A \cup (B \cup C)$$
+	$$(A \cap B) \cap C = A \cap (B \cap C)$$
+	\item Distributivnost:
+	$$(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$$
+	$$(A \cap B) \cup C = (A \cup C) \cap (B \cup C)$$
+	\item de Morganova zakona:
+	$$(A \cap B)^C = A^C \cup B^C$$
+	$$(A \cup B)^C = A^C \cap B^C$$
+	Še več:
+	$$\left( \bigcup_i A_i \right)^C = \bigcap_i {A_i}^C$$
+	$$\left( \bigcap_i A_i \right)^C = \bigcup_i {A_i}^C$$
+\end{enumerate}
+\end{opomba}
+\vspace{0.5cm}
+
+\begin{opomba}
+
+V splošnem ni vsaka podmnožica $A \subset \Omega$ dogodek.
+
+\end{opomba}
+\vspace{0.5cm}
+
+\begin{definicija}[$\sigma$-algebra]
+
+\textit{Neprazna} družina podmnožic (dogodkov) $\mathcal{F}$ v $\Omega$ je $\sigma$-algebra, če velja:
+\begin{enumerate}
+	\item \textit{Zaprtost komponente}:
+	$$A \in \mathcal{F} \Rightarrow A^C \in \mathcal{F}$$
+	\item \textit{Zaprtost števne unije}:
+	$$A_1, A_2, A_3, \ldots \in \mathcal{F} \Rightarrow \bigcup_{i=1}^{\infty} A_i \in \mathcal{F}$$
+\end{enumerate}
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{opomba}
+
+Če v (2) zahtevamo manj:
+$$A, B \in \mathcal{F} \Rightarrow A \cup B \in \mathcal{F},$$
+je $\mathcal{F}$ \textit{algebra}. V algebri imamo torej zaprtost za končne unije in končne preseke, medtem ko je $\sigma$-algebra zaprta celo za števne preseke.
+
+\end{opomba}
+\vspace{0.5cm}
+
+\begin{definicija}
+Naj bo $\mathcal{F}$ $\sigma$-algebra, $\Omega$ vzorčni prostor. \textit{Verjetnostna mera} na $(\mathcal{F}, \Omega$), je preslikava $\mathbb{P}: \mathcal{F} \rightarrow \mathbb{R}$ za katero velja:
+\begin{enumerate}
+	\item $\mathbb{P} \geq 0$, za $\forall A \in \mathbb{F}$
+	\item $\mathbb{P}(\Omega) = 1$
+	\item Za poljubne paroma nerazdružljive dogodke velja
+	$$\mathbb{P}\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{n=1}^{\infty} \mathbb{P}(A_i)$$
+\end{enumerate}
+Trojico $(\mathcal{F}, \Omega, \mathbb{P})$ imenujemo \textit{verjetnostni prostor}.
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}[Posledice verjetnostnih aksiomov]
+~
+\begin{enumerate}
+
+\item[(a)] $\mathbb{P}(\emptyset) = 0$ \\
+\textbf{Dokaz:} v (\textit{3.}) vzamemo $A_i = \emptyset$: 
+$\mathbb{P}(\emptyset) = \mathbb{P}(\emptyset) + \mathbb{P}(\emptyset) + \mathbb{P}(\emptyset) + \ldots$
+
+\item[(b)] $\mathbb{P}$ je končno aditivna, torej za končno mnogo paroma nerazdružljivih dogodkov velja: \\
+$\mathbb{P}(A_1 \cup \ldots \cup A_n) = \mathbb{P}(A_1) + \ldots + \mathbb{P}(A_n)$ \\
+\textbf{Dokaz:} v (\textit{3.}) vzamemo $A_{n+1} = A_{n+2} = \ldots = \emptyset$ in uporabimo (\textit{a})
+
+\item[(c)] $\mathbb{P}$ je \textit{monotona}, torej $A \subseteq B \Rightarrow \mathbb{P}(A) \subseteq \mathbb{P}(B)$ \\
+Še več: $A \subseteq B \Rightarrow \mathbb{P}(B \setminus A) = \mathbb{P}(B) - \mathbb{P}(A)$ \\
+\textbf{Dokaz:} ker je $B = A \cup (B-A)$, $A \cap (B \setminus A) = \emptyset$, zaradi (\textit{b}) velja $\mathbb{P}(B) = \mathbb{P}(A) + \mathbb{P}(B-A)$
+
+\item[(d)] $\mathbb{P}(A^C) = 1 - \mathbb{P}(A)$ \\
+\textbf{Dokaz:} v (\textit{c}) vzamemo $B = \Omega$
+
+\item[(e)] $\mathbb{P}$ je zvezna:
+\begin{enumerate}
+	\item[(i)] $A_1 \subseteq A_2 \subseteq A_3 \subseteq \ldots \Rightarrow \mathbb{P}(\bigcup_{i=1}^{\infty} A_i) = \lim_{n \rightarrow \infty} \mathbb{P}(A_n)$
+	\item[(ii)] $B_1 \supseteq B_2 \supseteq B_3 \supseteq \ldots \Rightarrow \mathbb{P}(\bigcap_{i=1}^{\infty} B_i) = \lim_{n \rightarrow \infty} \mathbb{P}(B_n)$
+\end{enumerate} 
+\textbf{Dokaz:}
+\begin{enumerate}
+	\item[(i)] Definiramo: $C_i = A_i \setminus A_{i-1}$ za $i = 2, 3, \ldots$, $C_1 = A_1$ \\
+	Potem je $A_n = C_1 \cup \ldots \cup C_n$, $~C_i \cap C_j = \emptyset$ za $i \neq j$, \\ 
+	$\bigcup_{i=1}^{\infty} A_i = \bigcup_{i=1}^{\infty} C_i$ \\
+	Torej je 
+	\begin{align*}
+	\mathbb{P}(\bigcup_{i=1}^{\infty} A_i &= \mathbb{P}(\bigcup_{i=1}^{\infty} C_i) = \sum_{i=1}^{\infty} \mathbb{P}(C_i) = \\
+	&= \lim_{n \rightarrow \infty} \sum_{i=1}^{n} \mathbb{P}(C_i) = \lim_{n \rightarrow \infty} \mathbb{P}(\bigcup_{i=1}^{n} C_i) = \lim_{n \rightarrow \infty} \mathbb{P}(A_n) \\
+	\end{align*}
+	\item[(ii)] Ker je $B_1 \supseteq B_2 \supseteq B_3 \supseteq \ldots$, sledi ${B_1}^C \subseteq {B_2}^C \subseteq {B_3}^C \subseteq \ldots$ \\
+	Po (\textit{i}) je $\mathbb{P}(\bigcup_{i=1}^{\infty} {B_i}^C) = \lim_{i \rightarrow \infty} \mathbb{P}({D_i}^C)$, toda $\bigcup_{i=1}^{\infty} {B_i}^C = (\bigcap_{i=1}^{\infty} B_i)^C$. \\
+	Zato je $1 - \mathbb{P}(\bigcap_{i=1}^{\infty} B_i) = \lim_{i \rightarrow \infty} (1 - \mathbb{P}(B_i))$, od koder sledi želena neenakost.
+\end{enumerate}
+\end{enumerate}
+\end{posledica}
+\vspace{0.5cm}
 
 \end{document}
