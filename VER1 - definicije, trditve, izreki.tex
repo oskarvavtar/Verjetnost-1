@@ -1,7 +1,7 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[slovene]{babel}
-
+\usepackage{relsize}
 \usepackage{amsthm}
 \usepackage{amsmath, amssymb, amsfonts}
 
@@ -14,12 +14,8 @@
 \theoremstyle{definition}
 \newtheorem{izrek}{Izrek}[section]
 
-\theoremstyle{theorem}
 \newtheorem*{posledica}{Posledica}
-
-\theoremstyle{theorem}
 \newtheorem*{opomba}{Opomba}
-
 \newtheorem{lema}{Lema}
 \newtheorem*{dokaz}{Dokaz}
 
@@ -170,25 +166,85 @@ $\mathbb{P}(A_1 \cup \ldots \cup A_n) = \mathbb{P}(A_1) + \ldots + \mathbb{P}(A_
 
 \item[(e)] $\mathbb{P}$ je zvezna:
 \begin{enumerate}
-	\item[(i)] $A_1 \subseteq A_2 \subseteq A_3 \subseteq \ldots \Rightarrow \mathbb{P}(\bigcup_{i=1}^{\infty} A_i) = \lim_{n \rightarrow \infty} \mathbb{P}(A_n)$
-	\item[(ii)] $B_1 \supseteq B_2 \supseteq B_3 \supseteq \ldots \Rightarrow \mathbb{P}(\bigcap_{i=1}^{\infty} B_i) = \lim_{n \rightarrow \infty} \mathbb{P}(B_n)$
+	\item[(i)] $A_1 \subseteq A_2 \subseteq A_3 \subseteq \ldots \Rightarrow \mathbb{P}(\mathlarger{\bigcup_{i=1}^{\infty} A_i}) = \lim_{n \rightarrow \infty} \mathbb{P}(A_n)$
+	\item[(ii)] $B_1 \supseteq B_2 \supseteq B_3 \supseteq \ldots \Rightarrow \mathbb{P}(\mathlarger{\bigcap_{i=1}^{\infty} B_i}) = \lim_{n \rightarrow \infty} \mathbb{P}(B_n)$
 \end{enumerate} 
 \textbf{Dokaz:}
 \begin{enumerate}
 	\item[(i)] Definiramo: $C_i = A_i \setminus A_{i-1}$ za $i = 2, 3, \ldots$, $C_1 = A_1$ \\
 	Potem je $A_n = C_1 \cup \ldots \cup C_n$, $~C_i \cap C_j = \emptyset$ za $i \neq j$, \\ 
-	$\bigcup_{i=1}^{\infty} A_i = \bigcup_{i=1}^{\infty} C_i$ \\
+	$\mathlarger{\bigcup_{i=1}^{\infty} A_i} = \mathlarger{\bigcup_{i=1}^{\infty} C_i}$ \\
 	Torej je 
 	\begin{align*}
-	\mathbb{P}(\bigcup_{i=1}^{\infty} A_i &= \mathbb{P}(\bigcup_{i=1}^{\infty} C_i) = \sum_{i=1}^{\infty} \mathbb{P}(C_i) = \\
-	&= \lim_{n \rightarrow \infty} \sum_{i=1}^{n} \mathbb{P}(C_i) = \lim_{n \rightarrow \infty} \mathbb{P}(\bigcup_{i=1}^{n} C_i) = \lim_{n \rightarrow \infty} \mathbb{P}(A_n) \\
+	\mathbb{P}(\bigcup_{i=1}^{\infty} A_i = \mathbb{P}(\bigcup_{i=1}^{\infty} C_i) &= \sum_{i=1}^{\infty} \mathbb{P}(C_i) = \\
+	= \lim_{n \rightarrow \infty} \sum_{i=1}^{n} \mathbb{P}(C_i) &= \lim_{n \rightarrow \infty} \mathbb{P}(\bigcup_{i=1}^{n} C_i) = \lim_{n \rightarrow \infty} \mathbb{P}(A_n) \\
 	\end{align*}
 	\item[(ii)] Ker je $B_1 \supseteq B_2 \supseteq B_3 \supseteq \ldots$, sledi ${B_1}^C \subseteq {B_2}^C \subseteq {B_3}^C \subseteq \ldots$ \\
-	Po (\textit{i}) je $\mathbb{P}(\bigcup_{i=1}^{\infty} {B_i}^C) = \lim_{i \rightarrow \infty} \mathbb{P}({D_i}^C)$, toda $\bigcup_{i=1}^{\infty} {B_i}^C = (\bigcap_{i=1}^{\infty} B_i)^C$. \\
-	Zato je $1 - \mathbb{P}(\bigcap_{i=1}^{\infty} B_i) = \lim_{i \rightarrow \infty} (1 - \mathbb{P}(B_i))$, od koder sledi želena neenakost.
+	Po (\textit{i}) je $\mathbb{P}(\bigcup_{i=1}^{\infty} {B_i}^C) = \mathlarger{\lim_{i \rightarrow \infty} \mathbb{P}({D_i}^C)}$, toda $\mathlarger{\bigcup_{i=1}^{\infty} {B_i}^C = \left( \bigcap_{i=1}^{\infty} B_i \right)^C}$. \\
+	Zato je $1 - \mathbb{P}(\bigcap_{i=1}^{\infty} B_i) = \mathlarger{\lim_{i \rightarrow \infty}} (1 - \mathbb{P}(B_i))$, od koder sledi želena neenakost.
 \end{enumerate}
 \end{enumerate}
 \end{posledica}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{POGOJNA VERJETNOST}
+\vspace{0.5cm}
+
+\begin{definicija}[Pogojna verjetnost]
+
+\textit{Pogojna verjetnost} dogodka $A$ glede na dogodek $B$, $\mathbb{P}(A | B)$, je verjetnost dogodka $A$ če vemo, da se je zgodil dogodek $B$.
+Posplošimo:
+$$\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Iz definicije sledi
+$$\mathbb{P}(A \cap B) = \mathbb{P}(A | B) \cdot \mathbb{P}(B).$$
+Če posplošimo na $n$ dogodkov dobimo
+$$\mathbb{P}(A_1 \cap A_2 \cap \ldots \cap A_n) = \mathbb{P}(A_1) \cdot \mathbb{P}(A_2 | A_1) \cdot \ldots \cdot \mathbb{P}(A_n | A_1 \cap \ldots \cap A_{n-1}).$$
+Če velja $\mathbb{P}(A) = \mathbb{P}(A | B)$, sta dogodka neodvisna.
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{izrek}[Izrek o popolni verjetnosti]
+
+Naj bo $(H_i)_i$ popoln sistem dogodkov. Potem je 
+$$A = A \cap \Omega = A \cap {\left( \bigcup_i H_i \right)} = \bigcup_i A \cap H_i$$
+in iz tega sledi
+$$\mathbb{P}(A) = \sum_i \mathbb{P}(A \cap H_i) = \sum_i \mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i).$$
+To je formula za \textit{popolno verjetnost}.
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}[Bayesova formula]
+
+Iz definicije pogojne verjetnosti vemo
+$$\mathbb{P}(H_i | A) = \frac{\mathbb{P}(H_i \cap A}{\mathbb{P}(A)} = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb{P}(A)}.$$
+Če v imenovalec vstavimo izrek o popolni verjetnosti, dobimo \textit{Bayesovo formulo}:
+$$\mathbb{P}(H_i | A) = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb{P}(H_1) \cdot \mathbb{P}(A | H_1) + \ldots + \mathbb{P}(H_n) \cdot \mathbb{P}(A | H_n)} = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\sum_i \mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}$$
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{definicija}[Neodvisnost dogodkov]
+
+Dogodka $A$ in $B$ sta \textit{neodvisna}, če je 
+$$\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B).$$
+Če je $\mathbb{P}(B) > 0$ to enakost lahko zapišemo kot
+$$\mathbb{P}(A) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} = \mathbb{P}(A | B).$$
+
+\end{definicija}
 \vspace{0.5cm}
 
 \end{document}
