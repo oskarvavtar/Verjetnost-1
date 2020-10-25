@@ -237,7 +237,7 @@ $$\mathbb{P}(H_i | A) = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb
 \end{posledica}
 \vspace{0.5cm}
 
-\begin{definicija}[Neodvisnost dogodkov]
+\begin{definicija}[Neodvisnost $2$ dogodkov]
 
 Dogodka $A$ in $B$ sta \textit{neodvisna}, če je 
 $$\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B).$$
@@ -245,6 +245,54 @@ $$\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B).$$
 $$\mathbb{P}(A) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} = \mathbb{P}(A | B).$$
 
 \end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}[Neodvisnost $k$ dogodkov]
+
+Dogodki $(A_i)_i$ so \textit{neodvisni}, če za poljuben končen nabor različnih dogodkov $A_{i_1}, A_{i_2}, \ldots, A_{i_k}$ velja
+$$\mathbb{P}(A_{i_1} \cap A_{i_2} \cap \ldots \cap A_{i_k}) = \mathbb{P}(A_{i_1}) \cdot \mathbb{P}(A_{i_2}) \cdot \ldots \cdot \mathbb{P}(A_{i_k}).$$
+Če zahtevamo le za $k = 2$, torej $A_i$ in $A_j$ sta neodvisna le za $i \neq j$, potem rečemo, da so dogodki \textit{paroma neodvisni}. To je šibkejši pogoj kot neodvisnost.
+
+\end{definicija}
+
+\begin{trditev}
+
+Če sta dogodka $A$ in $B$ neodvisna, potem sta neodvisna tudi dogodka $A^C$ in $B$, $A$ in $B^C$ ter $A^C$ in $B^C$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{ZAPOREDJA NEODVISNIH PONOVITEV \\POSKUSA}
+\vspace{0.5cm}
+
+\begin{definicija}[Bernoullijeva formula]
+
+Imejmo zaporedje $n$ neodvisnih ponovitev poskusa, določenega z verjetnostnim prostorom $(\Omega, \mathcal{F}, p)$, v katerem je možen dogodek $A$ s \\$\mathbb{P}(A) = p$.
+Z $A_n(k)$ označimo dogodek, da se $A$ zgodi natanko $k$-krat, $k = 0, 1, 2, \ldots, n$. \\
+
+\noindent $A_n(k)$ je \textit{disjunktivna unija} $\mathlarger{\binom{n}{k}}$ dogodkov, da se $A$ zgodi na predpisanih $k$ mestih; na ostalih pa $A^C$. Verjetnost le teh dogodkov je $p^k \cdot q^{n-k}$. Zato velja \textit{Bernoullijeva formula}
+$$\mathbb{P}_n(k) = \binom{n}{k} \cdot p^k \cdot q^{n-k}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}[Aproksimativni formuli za $\mathbb{P}_n(k)$]
+
+~\\
+\begin{enumerate}
+	\item[a)] \textsc{Poissonova formula}: če je $p$ blizu $0$ in $n$ velik, potem je
+	$$\mathbb{P}_n(k) \approx \frac{\lambda^k}{k!} \cdot e^{-\lambda}, ~\text{kjer je}~ \lambda = n \cdot p$$
+	\item[b)] \textsc{Laplaceova formula}: za velike $n$ velja
+	$$\mathbb{P}_n(k) \approx \frac{1}{\sqrt{2 \pi n p q}} \cdot e^{-\frac{(k-np)^2}{2npq}}$$
+\end{enumerate}
+
+\end{trditev}
 \vspace{0.5cm}
 
 \end{document}
