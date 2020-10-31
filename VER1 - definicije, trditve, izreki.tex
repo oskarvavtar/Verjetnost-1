@@ -295,4 +295,93 @@ $$\mathbb{P}_n(k) = \binom{n}{k} \cdot p^k \cdot q^{n-k}.$$
 \end{trditev}
 \vspace{0.5cm}
 
+% *************************************************************************************************
+
+\pagebreak
+
+% #################################################################################################
+
+\section{SLUČAJNE SPREMENLJIVKE}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Realna slučajna spremenljivka} na verjetnostnem prostoru $(\Omega, \mathcal{F}, p)$ je funkcija $X: \Omega \rightarrow \mathbb{R}$ z lastnostjo, da je za $\forall x \in \mathbb{R}$ množica $\{ \omega \in \Omega \mid X(\omega) \leq x \}$ v $\mathcal{F}$, se pravi je dogodek.\\
+
+\noindent Oznaka:
+$$\{ \omega \in \Omega \mid X(\omega) \leq x \} ~\equiv~ X^{-1}((-\infty, x]) ~\equiv~ (X \leq x)$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}[Porazdelitvena funkcija slučajne spremenljivke]
+
+Funkcija $F_X: \mathbb{R} \rightarrow \mathbb{R}$, definirana s $F_X(x) = \mathbb{P}(X \leq x)$ se imenuje \textit{porazdelitvena funkcija slučajne spremenljivke $x$}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}[Lastnosti porazdelitvene funkcije $F = F_X$]
+~\\
+\begin{enumerate}
+	\item $0 \leq F(x) \leq 1$ za $\forall x \in \mathbb{R}$
+	\item  $F$ je naraščajoča funkcija:
+	$$x_1 < x_2 \Rightarrow F(x_1) \leq F(x_2)$$
+	\item $\mathlarger{\lim_{x \rightarrow \infty} F(x) = 1}$, $\mathlarger{\lim_{x \rightarrow -\infty} F(x) = 0}$
+	\item $F$ je \textit{z desne zvezna}, torej $F(x+) = F(x)$ za $\forall x \in \mathbb{R}$, kjer je $\mathlarger{F(x+) = \lim_{h \searrow 0} F(x+h)}$ desna limita.
+	\item $F(x-) = \mathbb{P}(X < x)$ 
+	\begin{align*}
+	\mathbb{P}(x_1 < X \leq x_2) &= F(x_2) - F(x_1) \\
+	\mathbb{P}(x_1 < X < x_2) &= F(x_2-) - F(x_1) \\
+	\mathbb{P}(x_1 \leq X \leq x_2) &= F(x_2) - F(x_1-) \\
+	\mathbb{P}(x_1 \leq X < x_2) &= F(x_2-) - F(x_1-) 
+	\end{align*}
+\end{enumerate}
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}[Diskretne slučajne spremenljivke]
+
+Slučajna spremenljivka je \textit{diskretno porazdeljena}, če je njena zaloga vrednosti \textit{končna} ali \textit{števna končna} množica. Naj bo $\{ x_1, x_2, \ldots \}$ zaloga vrednosti. Vpeljemo verjetnostno funkcijo $p_k = \mathbb{P}(X = x_k)$, $k = 1, 2, 3, \ldots.$ Ker so $\{ (X = x_k) \}_k$ \textit{poln} sistem dogodkov, je 
+$$\sum_k p_k = 1.$$
+$X$ lahko zapišemo s shemo 
+$X: \begin{pmatrix}
+	x_1 & x_2 & \cdots & x_n \\
+	p_1 & p_2 & \cdots & p_n
+\end{pmatrix}$. Porazdelitvena funkcija:
+$$F(x) = \mathbb{P}(X \leq x) = \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (X = x_k) \right) = \sum_{k ~\mid~ x_k \leq x} p_k.$$ \\
+
+\noindent Pogoste diskretne porazdelitve:
+\begin{enumerate}
+	\item \textsc{Enakomerna porazdelitev} na $n$ točkah $x_1, \ldots, x_n$:
+	$$X: \begin{pmatrix}
+		x_1 & x_2 & \cdots & x_n \\
+		\frac{1}{n} & \frac{1}{n} & \cdots & \frac{1}{n}
+	\end{pmatrix}$$
+	\item \textsc{Bernoullijeva porazdelitev}, $Ber(p)$, $p \in (0, 1)$:
+	$$X: \begin{pmatrix}
+		0 & 1 \\
+		(1-p) & p
+	\end{pmatrix}$$
+	Indikatorska funkcija:
+	$$1_A(\omega) = \begin{cases}
+	1 ; ~\omega \in A \\
+	0 ; ~\omega \notin A
+	\end{cases}$$
+	\item \textsc{Binomska porazdelitev}, $Bin(n, p)$, $n \in \mathbb{R}$, $p \in (0, 1)$:
+	$$X: \begin{pmatrix}
+		0 & 1 & 2 & \cdots & n \\
+		p_0 & p_1 & p_2 & \cdots & p_n
+	\end{pmatrix},$$
+	kjer za $k = 0, 1, \ldots, n$ velja
+	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \binom{n}{k} p^k (1 - p)^{n-k}.$$
+	\item \textsc{Poisonnova porazdelitev}, $Poi(\lambda)$, $\lambda = n \cdot p > 0$:
+	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \mathbb{P}_n(k) ~=~ \frac{\lambda^k}{k!} \cdot e^{-\lambda}, ~k = 0, 1, \ldots$$
+	Sledi:
+	$$\sum_{k=0}^{\infty} ~=~ e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^k}{k!} ~=~ e^{-\lambda} \cdot e^{\lambda} ~=~ 1.$$
+\end{enumerate}
+
+\end{definicija}
+\vspace{0.5cm}
+
 \end{document}
