@@ -358,7 +358,8 @@ $$F(x) = \mathbb{P}(X \leq x) = \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (
 		x_1 & x_2 & \cdots & x_n \\
 		\frac{1}{n} & \frac{1}{n} & \cdots & \frac{1}{n}
 	\end{pmatrix}$$
-	\item \textsc{Bernoullijeva porazdelitev}, $Ber(p)$, $p \in (0, 1)$:
+	
+	\item \textsc{Bernoullijeva porazdelitev}, $Ber(p)$, ~$p \in (0, 1)$:
 	$$X: \begin{pmatrix}
 		0 & 1 \\
 		(1-p) & p
@@ -368,20 +369,87 @@ $$F(x) = \mathbb{P}(X \leq x) = \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (
 	1 ; ~\omega \in A \\
 	0 ; ~\omega \notin A
 	\end{cases}$$
-	\item \textsc{Binomska porazdelitev}, $Bin(n, p)$, $n \in \mathbb{R}$, $p \in (0, 1)$:
+	
+	\item \textsc{Binomska porazdelitev}, $Bin(n, p)$, ~$n \in \mathbb{R}$, ~$p \in (0, 1)$:
 	$$X: \begin{pmatrix}
 		0 & 1 & 2 & \cdots & n \\
 		p_0 & p_1 & p_2 & \cdots & p_n
 	\end{pmatrix},$$
 	kjer za $k = 0, 1, \ldots, n$ velja
 	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \binom{n}{k} p^k (1 - p)^{n-k}.$$
-	\item \textsc{Poisonnova porazdelitev}, $Poi(\lambda)$, $\lambda = n \cdot p > 0$:
+	
+	\item \textsc{Poisonnova porazdelitev}, $Poi(\lambda)$, ~$\lambda = n \cdot p > 0$:
 	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \mathbb{P}_n(k) ~=~ \frac{\lambda^k}{k!} \cdot e^{-\lambda}, ~k = 0, 1, \ldots$$
 	Sledi:
 	$$\sum_{k=0}^{\infty} ~=~ e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^k}{k!} ~=~ e^{-\lambda} \cdot e^{\lambda} ~=~ 1.$$
+	
+	\item \textsc{Geometrijska porazdelitev}: $geo(p), ~p \in (0, 1)$.\\
+	$(X = k)$ je dogodek, da se $A$ zgodi prvič v $k$-ti ponovitvi:
+	$$p_k ~=~ \mathbb{P}(X = k) ~=~ p \cdot q^{k-1}, ~k = 1, 2, 3, \ldots$$
+	Torej $\underbrace{A^C \cdot \ldots \cdot A^C}_{k-1} \cdot A = \underbrace{q \cdot \ldots \cdot q}_{k-1} \cdot p = p \cdot q^{k-1}.$ Velja:
+	$$\sum_{k=1}^{\infty} p_k ~=~ p \sum_{k=1}^{\infty} q^{k-1} ~=~ \frac{p}{1-q} = 1$$
+	
+	\item \textsc{Pascalova porazdelitev}: $Pas(m, p), ~m \in \mathbb{N}, ~p \in (0, 1).$\\
+	$(X = k)$ je dogodek, da se $A$ zgodi $m$-tič pri $k$-ti ponovitvi:
+	$$p_k ~=~ \binom{k-1}{m-1} \cdot p^m \cdot q^{k-m}, ~~k = m, m+1, \ldots$$
+	
+	\item \textsc{Hipergeometrijska porazdelitev}: $Hip(n; M, N), ~n \leq \min{\{M, N-M\}}$\\
+	V posodi je $M$ belih in $(N-M)$ črnih kroglic. Slučajno izvlečemo $n$ kroglic. $X$ naj pomeni število belih kroglic med izvlečenimi, kjer za $k = 0, 1, \ldots, n$ velja:
+	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \frac{\binom{M}{k} \binom{N-M}{n-k}}{\binom{N}{n}}$$
+	Ker je $\left[(X = k)\right]_{k=0}^n$ popoln sistem dogodkov je $\mathlarger{\sum_{k=0}^n p_k = 1}$, torej je
+	$$\sum_{k=0}^n \binom{M}{n} \cdot \binom{N-M}{n-k} = \binom{N}{n}.$$
 \end{enumerate}
 
 \end{definicija}
 \vspace{0.5cm}
+
+\begin{definicija}[Zvezno porazdeljene slučajne spremenljivke]
+
+Slučajna spremenljivka $X$ je \textit{zvezno porazdleljena}, če obstaja \textit{nenegativna integrabilna} funkcija $p_x$, imenovana \textit{gostota verjetnosti}, da za $\forall x \in \mathbb{R}$ velja
+$$F_X(x) = \int_{-\infty}^x p_x(t) ~dt.$$
+Tedaj je $F_X = F$ \textit{zvezna} funckija, toda obstajajo zvezno porazdeljene funkcije, ki nimajo gostote (torej jih ni mogoče zapisati s tistim integralom). \\
+
+\noindent Ker je $\mathlarger{\lim_{n \rightarrow \infty} F(x) = 1}$, je $\mathlarger{\int_{-\infty}^{\infty} p(t) = 1}$. Če je $p$ \textit{zvezna} v točki $x$, potem je $F$ \textit{odvedljiva} v $x$ in velja $F'(x) = p(x)$. \\
+
+\noindent Za $\forall x \in \mathbb{R}$ velja $\mathbb{P}(X = x) = F(x) - F(x-) = 0$. Če je $x_1 < x_2$, potem je 
+$$\mathbb{P}(x_1 \leq X \leq x_2) ~=~ F(x_2) - F(x_1-) ~=~ \int_{x_1}^{x_2} p(t) ~dt.$$ \\
+
+\noindent Nekatere pomembnejše zvezne porazdelitve:
+\begin{enumerate}
+	\item \textsc{Enakomerna zvezna porazdelitev} na $[a, b]$:
+	 $$p(x) = \begin{cases}
+	 	\frac{1}{b-a} &; ~\text{če}~ a \leq x \leq b \\
+	 	0 &; ~\text{sicer}
+	 \end{cases}$$
+	 $$F(x) = \int_{-\infty}^x p(t) ~dt = \begin{cases}
+	 	0 &; ~\text{če}~ x \leq a \\
+	 	\frac{x-a}{b-a} &; ~\text{če}~ a \leq x \leq b \\
+	 	1 &; ~\text{če}~ x \geq b
+	 \end{cases}$$
+	 
+	\item \textsc{Normalna ali Gaussova porazdelitev}: $N(\mu, \sigma), ~\mu \in \mathbb{R}, ~\sigma > 0$
+	$$\mathlarger{p(x)= \frac{1}{\sigma \sqrt{2 \pi}} \cdot e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2}}$$
+V vseh primerih je ploščina pod grafom enaka $1$. \\
+
+$N(0, 1)$: standardna normalna porazdelitev
+$$\mathlarger{f(x) = \frac{1}{\pi \sqrt{2}} \cdot e^{-\frac{x^2}{2}}}$$
+Laplaceova formula: za velike $n$ je $Bin(n, p) \approx N(np, \sqrt{npq})$
+
+	\item \textsc{Eksponentna porazdelitev}: $Exp(\lambda), ~\lambda > 0$
+	$$p(x) = \begin{cases}
+		\lambda \cdot e^{-\lambda x} &; ~\text{če}~ x \geq 0 \\
+		0 &; ~\text{sicer}~
+	\end{cases}$$
+	$$F(x) = \begin{cases}
+		1 - e^{-\lambda x} &; ~\text{če}~ x \leq 0 \\
+		0 &; ~\text{sicer}
+	\end{cases}$$
+	
+\end{enumerate}
+
+\end{definicija}
+\vspace{0.5cm}
+
+% #################################################################################################
 
 \end{document}
