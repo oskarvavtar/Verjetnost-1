@@ -445,9 +445,58 @@ Laplaceova formula: za velike $n$ je $Bin(n, p) \approx N(np, \sqrt{npq})$
 		0 &; ~\text{sicer}
 	\end{cases}$$
 	
+	\item \textsc{Cauchyjeva porazdelitev}:
+	$$p(x) = \frac{1}{\pi (1 + x^2)}, ~~x \in \mathbb{R}$$
 \end{enumerate}
 
 \end{definicija}
+\vspace{0.5cm}
+
+\pagebreak
+
+% #################################################################################################
+
+\section{SLUČAJNI VEKTOR IN NEODVISNOST}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Slučajni vektor} je $n$-terica slučajnih spremenljivk \\$X = (X_1, X_2, \ldots, X_n): \Omega \rightarrow \mathbb{R}^n$, z lastnostjo, da je množica \\$(X_1 \leq x_1, \ldots, X_n \leq x_n) := \{ \omega \in \Omega: X_1(\omega) \leq x_1, \ldots, X_n(\omega) \leq x_n \}$ dogodek za vsako $n$-terico $x = (x_1, x_2, \ldots, x_n) \in \mathbb{R}^n$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Porazdelitvena funkcija} $F_X: \mathbb{R}^n \rightarrow \mathbb{R}$ je definirana s predpisom $F_X(x) = F_{(X_1, \ldots, X_n)}(x_1, \ldots, x_n) = \mathbb{P}(X_1 \leq x_1, \ldots, X_n \leq x_n)$. Za $\forall x \in \mathbb{R}^n$ je $F(x) \in [0, 1]$; glede na vsako spremenljivko je $F$ naraščajoča in z desne zvezna;
+$$\lim_{x_i \rightarrow \infty, ~\forall i} F(x_1, \ldots, x_n) = 1, ~~\lim_{x_i \rightarrow -\infty, ~\forall i} F(x_1, \ldots, x_n) = 0.$$
+Če pošljemo proti $\infty$ samo nekatere spremenljivke, dobimo porazdelitveno funkcijo pod vektorjem, npr.
+$$\lim_{x_n \rightarrow \infty} F(x_1, \ldots, x_n) = F_{(X_1, \ldots, X_{n-1})}(x_1, x_2, \ldots, x_{n-1}).$$
+Robna porazdelitve funkcija $X_1$, \textit{robna (marginalna)} porazdelitev:
+$$\lim_{\substack{x_2 \rightarrow \infty \\ \cdots \\ x_n \rightarrow \infty}} = F_{X_1}(x_1)$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Slučajne spremenljivke $X_1, \ldots, X_n$ v slučajnem vektorju $X = (X_1, \ldots, X_n)$ so \textit{neodvisne}, če za $\forall x_1, \ldots, x_n \in \mathbb{R}$ velja 
+$$F_X(x_1, \ldots, x_n) = F_{X_1}(x_1) \cdot \ldots \cdot F_{X_n}(x_n).$$
+Drugače:
+\begin{align*}
+\mathbb{P}(X_1 \leq x_1, \ldots, X_n \leq x_n) &= \mathbb{P}(X_1 \leq x_1) \cdot \ldots \cdot \mathbb{P}(X_n \leq x_n) \\ 
+&= (X_1 \leq x_1, \ldots, X_n \leq x_n) ~~\text{so neodvisne}.
+\end{align*}
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $(X, Y)$ diskreten slučajni vektor; \\$p_{i,j} = \mathbb{P}(X = x_i, Y = y_j)$, $p_i = \mathbb{P}(X = x_i), q_j = \mathbb{P}(Y = y_j)$, $i = 1, 2, \ldots$, $j = 1, 2, \ldots$.
+$$X ~\text{in}~ Y ~\text{sta neodvisni slučajni spremenljivki}~ \Leftrightarrow ~p_{i,j} = p_i \cdot q_j, ~~\forall i, ~\forall j $$
+
+\end{trditev}
 \vspace{0.5cm}
 
 % #################################################################################################
