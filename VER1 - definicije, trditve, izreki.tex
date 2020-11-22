@@ -501,4 +501,90 @@ $$X ~\text{in}~ Y ~\text{sta neodvisni slučajni spremenljivki}~ \Leftrightarrow
 
 % #################################################################################################
 
+\section{MATEMATIČNO UPANJE \\oz. pričakovana vrednost}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Za končno slučajno spremenljivko $X: \begin{pmatrix}
+	x_1 & x_2 & \cdots & x_n \\
+	p_1 & p_2 & \cdots & p_n
+\end{pmatrix}$ je matematično upanje definirano kot 
+$$E(x) ~=~ \sum_{k=1}^n x_k \cdot p_k.$$
+Naj ima seda $X$ neskončno zalogo vrednosti. Če je $X$ \textit{diskretna} s $p_k = \mathbb{P}(X = x_k)$ ($k \in \mathbb{N}$), potem $X$ ima matematično upanje, če je 
+$$\sum_{k=1}^{\infty} |x_k| \cdot p_k < \infty ~~\text{(je končno)};$$
+tedaj je matematično upanje definirano kot vsota vrste 
+$$E(x) := \sum_{k=1}^{\infty} x_k \cdot p_k.$$
+Če je $X$ \textit{zvezna} z gostoto $p(x)$, potem rečemo, da $X$ ima matematično upanje, če je
+$$\int_{-\infty}^{\infty} |x| \cdot p_k(x) ~dx < \infty;$$
+tedaj je matematično upanje definirano kot
+$$E(x) := \int_{-\infty}^{\infty} x \cdot p(x) ~dx.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $f: \mathbb{R} \rightarrow \mathbb{R}$ funkcija.
+\begin{enumerate}
+	\item[a)] Če je $X: \begin{pmatrix}
+	x_1 & x_2 & x_3 & \cdots \\
+	p_1 & p_2 & p_3 & \cdots
+\end{pmatrix}$, potem je 
+	$$E(f \circ X) ~=~ \sum_k f(x_k) \cdot p_k,$$
+	če matematično upanje obstaja, torej je vrsta \textit{absolutno kovnergentna}.
+	\item[b)] Če je $X$ zvezno porazdeljena z gostoto $p(x)$, potem je 
+	$$E(f \circ X) ~=~ \int_{-\infty}^{\infty} f(x) \cdot p(x) ~dx,$$
+	če je integral \textit{absolutno konvergenten}.
+\end{enumerate}
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Slučajna spremenljivka $X$ ima matematično upanje $\Leftrightarrow$ ko ga ima slučajna spremenljivka $(X)$. Tedaj velja
+$$|E(x)| \leq E(|x|).$$
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Za $a \in \mathbb{R}$ in slučajno spremenljivko $X$ z matematičnim upanjem velja
+$$E(a \cdot X) ~=~ a \cdot E(x).$$ 
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bo $f: \mathbb{R}^2 \rightarrow \mathbb{R}$ funkcija, $(X, Y)$ diskretno porazdeljen slučajni vektor:
+$$p_{ij} = \mathbb{P}(X = x_i, Y = y_i), ~~i,j = 1, 2, \ldots$$
+Potem je $f(X, Y): \Omega \rightarrow \mathbb{R}$ slučajna spremenljivka in velja
+$$E(f(X, Y)) ~=~ \sum_i \sum_j f(x_i, y_j) \cdot p_{ij},$$
+če le vrsta absolutno konvergira.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če imata $X$ in $Y$ matematično upanje, ga ima tudi $X + Y$ in velja
+$$E(X + Y) ~=~ E(X) + E(Y).$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Za slučajne spremenljivke $X_1, X_2, \ldots, X_n$, ki imajo matematično upanje velja:
+$$E(a_1 X_1 + a_2 X_2 + \ldots + a_n X_n) ~=~ a_1 \cdot E(X_1) + \ldots + a_n \cdot E(X_n),$$
+kjer so $a_1, a_2, \ldots, a_n \in \mathbb{R}$.
+
+\end{posledica}
+\vspace{0.5cm}
+
+% #################################################################################################
+
 \end{document}
