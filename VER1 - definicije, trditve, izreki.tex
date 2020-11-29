@@ -383,7 +383,7 @@ $$F(x) = \mathbb{P}(X \leq x) = \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (
 	Sledi:
 	$$\sum_{k=0}^{\infty} ~=~ e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^k}{k!} ~=~ e^{-\lambda} \cdot e^{\lambda} ~=~ 1.$$
 	
-	\item \textsc{Geometrijska porazdelitev}: $geo(p), ~p \in (0, 1)$.\\
+	\item \textsc{Geometrijska porazdelitev}: $Geo(p), ~p \in (0, 1)$.\\
 	$(X = k)$ je dogodek, da se $A$ zgodi prvič v $k$-ti ponovitvi:
 	$$p_k ~=~ \mathbb{P}(X = k) ~=~ p \cdot q^{k-1}, ~k = 1, 2, 3, \ldots$$
 	Torej $\underbrace{A^C \cdot \ldots \cdot A^C}_{k-1} \cdot A = \underbrace{q \cdot \ldots \cdot q}_{k-1} \cdot p = p \cdot q^{k-1}.$ Velja:
@@ -583,6 +583,118 @@ $$E(a_1 X_1 + a_2 X_2 + \ldots + a_n X_n) ~=~ a_1 \cdot E(X_1) + \ldots + a_n \c
 kjer so $a_1, a_2, \ldots, a_n \in \mathbb{R}$.
 
 \end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če obstaja $E(X^2)$ in $E(Y^2)$, potem obstaja tudi $E(|XY|)$ in velja
+$$E(|XY|) \leq \sqrt{E(X^2) \cdot E(Y^2)} ~~(\textit{Cauchy-Schwarzova neenakost})$$
+Enakost velja $\Leftrightarrow$ $|Y| = \sqrt{\cfrac{E(Y^2)}{E(X^2)}} \cdot |X|$ z verjetnostjo $1$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+Če obstaja $E(X^2)$, potem obstaja tudi $E(|X|)$ in velja
+$$(E(|X|))^2 \leq E(X^2).$$
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Naj bosta $X$ in $Y$ \textit{neodvisni} slučajni spremenljivki, ki imata matematično upanje. Potem obstaja tudi matematično upanje $X \cdot Y$ in velja
+$$E(X \cdot Y) = E(X) \cdot E(Y).$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\pagebreak
+
+% #################################################################################################
+
+\section{DISPERZIJA, KOVARIANCA IN KORELACIJSKI KOEFICIENT}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj obstaja $E(X^2)$. \textit{Disperzija} oz. \textit{varianca} je definirana kot
+$$D(X) \equiv Var(X) := E((X - E(X))^2).$$
+$D(X)$ meri razpršenost okoli $E(X)$. Velja
+$$D(X) = E(X^2) - (E(X)^2)$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Lastnosti $D(X)$:
+\begin{enumerate}
+	\item $$D(X) \geq 0$$
+	$$D(X) = 0 ~\Leftrightarrow~ \mathbb{P}(X = E(X)) = 1$$
+	\item $D(a \cdot X) = a^2 \cdot D(X), ~~a \in \mathbb{R}$
+	\item Za $\forall a \in \mathbb{R}$ je 
+	$$E((X - a)^2) \geq D(X)$$
+	Enačaj velje $\Leftrightarrow$ $a = E(X)$.
+\end{enumerate}
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Standardna deviacija} oz. \textit{standardni odklon} je definiran kot
+$$\sigma(X) := \sqrt{D(X)}.$$
+Zanjo velja
+$$\sigma(a \cdot X) = |a| \cdot \sigma(X), ~~a \in \mathbb{R}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}[Nekatere $E(X)$ in $D(X)$]
+~
+\begin{enumerate}
+	\item \textsc{Enakomerna porazdelitev}:
+	$$E(X) = \frac{x_1 + \ldots + x_n}{n}$$
+	$$D(X) = \frac{x_1^2 + \ldots + x_n^2}{n} - \left( \frac{x_1 + \ldots + x_n}{n} \right)^2$$
+	\item \textsc{Binomska porazdelitev}, $Bin(n, p)$:
+	$$E(X) = n \cdot p$$
+	$$D(X) = n \cdot p \cdot q$$
+	$$\sigma(X) = \sqrt{n \cdot p \cdot q}$$
+	\item \textsc{Poissonova porazdelitev}, $Poi(\lambda)$:
+	$$E(X) = D(X) = \lambda$$
+	\item \textsc{Geometrijska porazdelitev}, $Geo(p)$:
+	$$E(X) = \frac{1}{p}$$
+	$$D(X) = \frac{q}{p^2}, ~~q = 1 - p$$
+	\item \textsc{Pascalova porazdelitev}, $Pas(m, p)$:
+	$$E(X) = \frac{m}{p}$$
+	$$D(x) = \frac{m \cdot q}{p}$$
+	\item \textsc{Enakomerna zvezna porazdelitev} na $[a, b]$:
+	$$E(X) = \frac{a + b}{2}$$ $$
+	D(X) = \frac{(b-a)^2}{12}$$
+	\item \textsc{Normalna porazdelitev}, $N(\mu, \sigma)$, $\mu \in \mathbb{R}$, $\sigma > 0$:
+	$$E(X) = \mu$$
+	$$D(X) = \sigma^2$$
+	$$\sigma(X) = \sigma$$
+	\item \textsc{Eksponentna porazdelitev}, $Exp(\lambda)$:
+	$$E(X) = \frac{1}{\lambda}$$
+	$$D(X) = \frac{1}{\lambda^2}$$
+\end{enumerate}
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Kovarianca} slučajnih spremenljivk $X$ in $Y$ je definirana kot 
+\begin{align*}
+K(X, Y) \equiv Cov(X, Y) :&= E((X - E(X)) \cdot (Y - E(Y))) \\
+&= E(X \cdot Y) - E(X) \cdot E(Y).
+\end{align*}
+
+
+\end{definicija}
 \vspace{0.5cm}
 
 % #################################################################################################
