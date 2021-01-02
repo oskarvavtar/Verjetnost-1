@@ -18,6 +18,7 @@
 \newtheorem*{opomba}{Opomba}
 \newtheorem{lema}{Lema}
 \newtheorem*{dokaz}{Dokaz}
+\newtheorem*{posplošitev}{Posplošitev}
 
 \title{Verjetnost 1 - definicije, trditve in izreki}
 \author{Oskar Vavtar}
@@ -627,12 +628,11 @@ $$D(X) = E(X^2) - (E(X)^2)$$
 \end{definicija}
 \vspace{0.5cm}
 
-\begin{trditev}
-
-Lastnosti $D(X)$:
+\begin{trditev}[Lastnosti $D(X)$]
+~\\
 \begin{enumerate}
-	\item $$D(X) \geq 0$$
-	$$D(X) = 0 ~\Leftrightarrow~ \mathbb{P}(X = E(X)) = 1$$
+	\item $D(X) \geq 0$ \\
+	$D(X) = 0 ~\Leftrightarrow~ \mathbb{P}(X = E(X)) = 1$
 	\item $D(a \cdot X) = a^2 \cdot D(X), ~~a \in \mathbb{R}$
 	\item Za $\forall a \in \mathbb{R}$ je 
 	$$E((X - a)^2) \geq D(X)$$
@@ -697,6 +697,292 @@ K(X, Y) \equiv Cov(X, Y) :&= E((X - E(X)) \cdot (Y - E(Y))) \\
 \end{definicija}
 \vspace{0.5cm}
 
+\begin{trditev}[Lastnostni kovariance]
+~\\
+\begin{enumerate}
+	\item $K(X,X) = D(X$
+	\item $X$ in $Y$ sta \textit{nekorelirana} $~\Leftrightarrow~$ $K(X, Y) = 0$
+	\item $K$ je \textit{simetrična} in \textit{linearna}:
+	$$K(Y, X) ~=~ K(X, Y)$$
+	$$K(aX + bY, Z) ~=~ a \cdot K(X, Z) + b \cdot K(Y, Z), ~~\text{za}~~ a, b \in \mathbb{R}$$
+	\item Kovarianca obstaja, če obstajata obe disperziji $D(X)$ in $D(Y)$. Tedaj velja
+	$$|K(X,Y)| ~\leq~ \sqrt{D(X) \cdot D(Y)} ~=~ \sigma(x) \cdot \sigma(y)$$
+	Enakost velja $~\Leftrightarrow~$ $Y - \mathbb{E}(Y) ~=~ \pm \frac{\sigma(Y)}{\sigma(X)} \cdot (X - \mathbb{E}(X))$ z verjetnostjo $1$
+	\item Če $X$ in $Y$ imata disperzijo, potem jo ima tudi $X+Y$ in velja
+	$$D(X+Y) ~=~ D(X) + D(Y) + 2K(X,Y)$$
+	Če sta $X$ in $Y$ nekorelirani, potem je
+	$$D(X+Y) ~=~ D(X) + D(Y)$$
+	\item Posplošitev  zadnje lastnosti:
+	$$D(X_1 + X_2 + \ldots + X_n) ~=~ \sum_{k=1}^n D(X_n) + 2\sum_{i=1}^{n-1} \sum_{j=i+1}^n K(X_i, X_j)$$
+	Posebej: če so $X_1, \ldots, X_n$ paroma nekorelirane, potem je 
+	$$D(X_1, \ldots, X_n) ~=~ D(X_1) + \ldots + D(X_n)$$
+\end{enumerate}
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Standardizacija} slučajne spremenljivke $X$ je slučajna spremenljvka
+$$X_s ~=~ \frac{X - \mathbb{E}(X)}{\sigma(X)}.$$
+Tedaj je $\mathbb{E}(X_s) = 0$, $D(X_s) = 1$, saj je
+$$D(X_s) ~=~ \frac{1}{\sigma(X)^2} \cdot D(X - \mathbb{E}(X)) ~=~ 1.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Korelacijski koeficient} slučajnih spremenljivk $X$ in $Y$ je
+$$r(X,Y) ~=~ \frac{K(X, Y)}{\sigma(X) \cdot \sigma(Y)} ~=~ \frac{\mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \mathbb{E}(Y)))}{\sigma(X) \cdot \sigma(Y)} ~=~ \mathbb{E}(X_s \cdot Y_s)$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}[Lastnosti korelacijskih koeficientov]
+~\\
+\begin{enumerate}
+	\item $r(X,Y) = 0 ~\Leftrightarrow~$ $X$ in $Y$ sta nekorelirani
+	\item $-1 \leq r(X,Y) \leq 1$ sledi iz 4. lastnosti kovariance
+	\item $r(X,Y) = \pm 1$ $~\Leftrightarrow~$ $Y = \pm \frac{\sigma(Y)}{\sigma(X)} \cdot (X - \mathbb{E}(X)) + \mathbb{E}(Y)$ z verjetnostjo $1$
+\end{enumerate}
+\end{trditev}
+\vspace{0.5cm}
+
+\pagebreak
+
 % #################################################################################################
+
+\section{POGOJNA PORAZDELITEV IN POGOJNO MATEMATIČNO UPANJE}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Fiksirajmo dogodek $B$ s $\mathbb{P}(B) > 0$. \textit{Pogojna porazdelitvena funkcija} slučajne spremenljivke $X$ glede na pogoj $B$ je
+$$F_X(x | B) ~=~ \mathbb{P}(X \leq x | B) ~=~ \frac{\mathbb{P}((X \leq x) \cap B)}{\mathbb{P}(B)}$$
+in ima enake lastnosti kot porazdelitvena funkcija. \\
+
+\noindent Naj bo $(X, Y)$ diskreten slučajni vektor: 
+$$p_{ij} =  \mathbb{P}(X = x_i, Y = y_j)$$
+$$B := (Y = y_j), ~~\mathbb{P}(B) = \mathbb{P}(Y = y_j) = q_j$$
+Potem je \textit{pogojna porazdelitvena funkcija} slučajne spremenljivke $X$ glede na $Y = y_j$:
+\begin{align*}
+	F_X(x | y_j) ~&=~ F_X(x | Y = y_j) ~=~ \mathbb{P}(X \leq y |Y = y_j) ~= \\
+	&=~ \frac{1}{q_j} \mathbb{P}((X \leq x) \cap (Y = y_j)) ~=~ \frac{1}{q_j} \sum_{i: x_1 \leq x} p_{ij}
+\end{align*}
+Vpeljimo  \textit{pogojno verjetnostno funkcijo}:
+$$p_{i|j} ~=~ \mathbb{P}(X = x_i | Y = y_j) ~=~ \frac{\mathbb{P}(X = x_i, Y = y_j)}{\mathbb{P}(Y = y_j)} ~=~ \frac{p_{ij}}{q_j}.$$
+Tedaj je 
+$$F_X(x | Y = y_j) ~=~ \sum_{i: x_i \leq x} p_{i|j}.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Pogojno matematično upanje} slučajne spremenljivke $X$ glede na $Y = y_j$ je matematično upanje te porazdelitve:
+$$\mathbb{E}(X | y_j) ~\equiv~ \mathbb{E}(X | Y = y_j) ~=~ \sum_i x_i \cdot p_{i|j} ~=~ \frac{1}{q_j} \sum_i x_i \cdot p_{ij}$$
+Tako dobimo novo slučajno spremenljivko:
+$$\mathbb{E}(X | Y): ~\begin{pmatrix}
+	\mathbb{E}(X | y_1) & \mathbb{E}(X | y_2) & \ldots \\
+	q_1 & q_2 & \ldots
+\end{pmatrix}$$
+Označimo $\varphi(y_j) := \mathbb{E}(X | y_j)$ za $\forall j$:
+$$\mathbb{E}(X | Y) ~:=~ \varphi(Y): ~\begin{pmatrix}
+	\varphi(y_1) & \varphi(y_2) & \ldots \\
+	q_1 & q_2 & \ldots
+\end{pmatrix}$$
+$\varphi$ je \textit{regresijska funkcija}.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\pagebreak
+
+% #################################################################################################
+
+\section{RODOVNE FUNKICJE}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $X$ slučajna spremenljivka z vrednostmi v $\mathbb{N} \cup \{0\}$:
+\begin{align*}
+	p_k ~&=~ \mathbb{P}(X = k), ~~~~~k ~=~ 0, 1, 2, \ldots, \\
+	p_k ~&\leq~ 0, ~~~~~~~~~~\sum_{k=0}^{\infty} p_k ~=~ 1.
+\end{align*}
+\textit{Rodovna funkcija} slučajne spremenljivke $X$ je 
+$$G_X(s) ~:=~ p_0 + p_1 \cdot s + p_2 \cdot s^2 + p_3 \cdot s^3 + \ldots ~=~ \sum_{k=0}^{\infty} p_k \cdot s^k$$
+za $\forall s \in \mathbb{R}$, za katere vrsta \textit{absolutno konvergira}. \\
+
+\noindent Očitno je $G_X(0) = p_0$, $G_X(1) = \mathlarger{\sum_{k=0}^{\infty} p_k} = 1$, $G_X(s) = \mathbb{E}(s^X)$, saj je
+$$s^X: ~\begin{pmatrix}
+	~s^0 & s^1 & s^2 & s^3 & \ldots~ \\
+	~p_0 & p_1 & p_2 & p_3 & \ldots~
+\end{pmatrix}$$
+Za $s \in [-1, 1]$ velja $|p_k \cdot s^k| \leq p_k$ in $\mathlarger{\sum_{k=0}^{\infty} = 1}$, zato vrsta $\mathlarger{\sum_{k=0}^{\infty}} |p_k \cdot s^k|$ konvergira. Torej je konvergenčni radij vrste vsaj $1$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}[Izrek o enoličnosti]
+
+Naj imata $X$ in $Y$ rodovni funkciji $G_X$ in $G_Y$. Potem je
+$$G_X(s) = G_Y(s) ~\text{za}~ \forall s \in [-1, 1] ~\Leftrightarrow~ \mathbb{P}(X=k) = \mathbb{P}(Y=k) ~\text{za}~ \forall k = 0, 1, 2, \ldots $$
+Tedaj velja
+$$\mathbb{P}(X = k) ~=~ \frac{1}{k!} \cdot G_X^{(k)}(0).$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj ima $X$ ima rodovno funkcijo $G_X$ in $n \in \mathbb{N}$. Potem je 
+$$G_X^{(n)}(1-) ~=~ \mathbb{E}(X(X-1)(X-2)\ldots(X-n+1)),$$
+kjer je 
+$$G_X^{(n)}(1-) ~=~ \lim_{s \nearrow 1} G_X^{(n)}(s).$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}
+
+$$\mathbb{E}(X) ~=~ G_X'(1-)$$
+\begin{align*}
+	D(X) ~&=~ \mathbb{E}(X(X-1)) + \mathbb{E}(X) - (\mathbb{E}(X))^2 = \\
+	&=~ G_X''(1-) + G_X'(1-) - (G_X'(1-))^2
+\end{align*}
+
+\end{posledica}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bosta $X$ in $Y$ neodvisni slučajni spremenljivki z rodovnimi funkcijami $G_X$ in $G_Y$. Potem je 
+$$G_{X+Y}(s) ~=~ G_X(s) \cdot G_Y(s) ~~\text{za}~ s \in [-1, 1].$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posplošitev}
+
+Če je $S_n = X_1 + \ldots + X_n$ vsota neodvisnih slučajnih spremenljivk z vrednostmi v $\mathbb{N} \cup \{0\}$, potem je za $s \in [-1, 1]$
+$$G_{S_n}(s) ~=~ G_{X_1}(s) \cdot G_{X_2}(s) \cdot \ldots \cdot G_{X_n}(s).$$
+Posebej: če so $X_1, X_2, \ldots, X_n$ enako porazdeljene, potem je
+$$G_{S_n}(s) ~=~ (G_X(s))^n.$$ 
+
+\end{posplošitev}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj bodo za $\forall n \in \mathbb{N}$ slučajne spremenljivke $N, X_1, X_2, \ldots, X_n$ neodvisne. Naj ima $N$ rodovno funkcijo $G_N$, $X_n$ pa rodovno funkcijo $G_X$ za $\forall n \in \mathbb{N}$. Potem ima slučajna spremenljivka $S = X_1 + X_2 + \ldots + X_N$ rodovno funkcijo
+$$G_S(s) ~=~ G_N(G_X(s)), ~~s \in [-1, 1].$$ 
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{posledica}[Waldova enakost]
+
+$$\mathbb{E}(S) ~=~ \mathbb{E}(N) \cdot \mathbb{E}(X)$$
+
+\end{posledica}
+\vspace{0.5cm}
+
+\pagebreak
+
+% #################################################################################################
+
+\section{VIŠJI MOMENTI in VRSTILNE \\KARAKTERISTIKE}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+Naj bo $k \in \mathbb{N}$ in $a \in \mathbb{R}$. \textit{Moment reda k glede na a} je
+$$m_k(a) ~=~ \mathbb{E}((X-a)^k),$$
+če obstaja. Za $a$ občajno vzamemo:
+\begin{enumerate}
+	\item \textit{začetni moment}: \\$a = 0$: $$z_k = m_k(0) = \mathbb{E}(X^k)$$
+	\item \textit{centralni moment reda $k$}: \\$a = \mathbb{E}(X)$: $$m_k = m_k(\mathbb{E}(X)) = \mathbb{E}((X - \mathbb{E}(X))^k)$$
+\end{enumerate}
+Očitno je $z_1 = \mathbb{E}(X)$ in $m_2 = D(X)$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če obstaja $m_n(a)$, potem obstaja tudi $m_k(a)$ za $\forall k < n$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Če obstaja začetni moment $z_n$, potem obstaja tudi $m_n(a)$ za $\forall a \in \mathbb{R}$.
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Asimetrija} slučajne spremenljivke $X$ je 
+$$A(X) ~:=~ \mathbb{E}({X_s}^3) ~=~ \mathbb{E}\left( \left( \frac{X - \mathbb{E}(X)}{\sigma(X)} \right)^3 \right) ~=~ \frac{m_3}{(m_2)^{\frac{3}{2}}}$$
+Velja:
+\begin{itemize}
+	\item $A(N(\mu, \sigma)) = 0$
+	\item $A(\lambda X) = A(X)$ za $\lambda > 0$.
+\end{itemize}
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Sploščenost (kurtozis)} slučajne spremenljivke $X$ je
+$$K(X) ~=~ \frac{m_4}{(m_2)^2} ~=~ \mathbb{E}({X_s}^4) ~=~ \mathbb{E}\left( \left( \frac{X - \mathbb{E}(X)}{\sigma(X)} \right)^4 \right)$$
+Velja:
+\begin{itemize}
+	\item $K(N(\mu, \sigma)) = 3$
+	\item $K(\lambda X) = K(X)$ za $\lambda > 0$.
+\end{itemize}
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{opomba}
+
+Nekateri definirajo sploščenost kot $K(X) - 3$, torej je v primeru $N(\mu, \sigma)$ enako $0$.
+
+\end{opomba}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Mediana}  slučajne spremenljivke $X$ je vsaka vrednost $x \in \mathbb{R}$, za katere velja
+$$\mathbb{P}(X \leq x) ~\geq~ \frac{1}{2} ~~~\text{in}~~~ \mathbb{P}(X \geq x) ~\geq~ \frac{1}{2}.$$
+Ker je 
+$$\mathbb{P}(X \geq x) ~=~ 1 - \mathbb{P}(X < x) ~=~ 1 - F(x-),$$
+lahko pogoj za mediano zapišemo takole
+$$F(x-) ~\leq~ \frac{1}{2} ~\leq~ F(x).$$
+Če je $X$ zvezno porazdeljena, je pogoj enak $F(x) = \cfrac{1}{2}$. Te vrednosti označimo z $x_{\frac{1}{2}}$.
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+\textit{Kvantil reda $p$} je vsaka vrednost $x_p$, za katero velja
+$$\mathbb{P}(X \leq x_p) ~\geq~ p ~~~\text{in}~~~ \mathbb{P}(X \geq x_p) ~\geq~ 1 - p$$
+oziroma ekvivalentno:
+$$F(x_p-) ~\leq~ p ~\leq~ F(x_p), ~~0 < p < 1.$$
+Če je $X$ zvezno porazdeljena, je pogoj za kvantil:
+$$F(x_p) ~=~ p ~~~\text{oziroma}~~~ \int_{-\infty}^{x_p} p_X(t) dt ~=~ p.$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+% #################################################################################################
+
+
 
 \end{document}
