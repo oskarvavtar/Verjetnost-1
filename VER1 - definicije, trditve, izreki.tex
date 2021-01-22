@@ -45,9 +45,9 @@ Definirajmo \textit{frekvenco dogodka} $k_n(A)$ kot število ponovitev, pri kate
 \textit{Relativna frekvenca} je definirana kot $f_n(A) = \frac{k_n(A)}{n}$.
 Zaporedje $\{f_n(A)\}_{n \in \mathbb{N}}$ konvergira k nekem številu $p \in [0, 1].$ \\
 \textsc{Statistična definicija verjetnosti} je definirana kot
-$$\mathbb{P}(A) = \lim_{n\to\infty} \{f_n(A)\}.$$
+$$\mathbb{P}(A) ~=~ \lim_{n\to\infty} \{f_n(A)\}.$$
 \textsc{Klasična definicija verjetnosti} je definirana kot
-$$\mathbb{P}(A) = \frac{\text{št. ugodnih izidov A}}{\text{št. vseh izidov A}}.$$
+$$\mathbb{P}(A) ~=~ \frac{\text{št. ugodnih izidov A}}{\text{št. vseh izidov A}}.$$
 Če je izidov neskončno mnogo uporabimo geometrijsko definicijo verjetnosti.
 
 \end{definicija}
@@ -69,13 +69,13 @@ Imamo \textit{prostor vseh izidov} oz. \textit{vzorčni prostor} $\Omega$. \text
 ~
 \begin{enumerate}
 	\item \textsc{Vsota} oz. \textsc{unija} dogodkov:
-	$$A + B = A \cup B$$
+	$$A + B ~=~ A \cup B$$
 	je dogodek, ki se zgodi, če se zgodi vsaj eden od dogodkov $A$ in $B$. \\
 	\item \textsc{Produkt} oz. \textsc{presek} dogodkov:
-	$$A \cdot B = A \cap B$$
+	$$A \cdot B ~=~ A \cap B$$
 	je dogodek, ki se zgodi, če se zgodita oba dogodka $A$ in $B$ hkrati.
 	\item \textsc{Nasprotni} dogodek oz. \textsc{komplement} dogodkov:
-	$$\bar{A} = A^C$$
+	$$\bar{A} ~=~ A^C$$
 	je dogodek, ki se zgodi, če se dogodek $A$ ne zgodi.
 \end{enumerate}
 \end{definicija}
@@ -86,22 +86,22 @@ Imamo \textit{prostor vseh izidov} oz. \textit{vzorčni prostor} $\Omega$. \text
 Pravila za računanje z dogodki:
 \begin{enumerate}
 	\item Idempotentnost: 
-	$$A \cup A = A = A \cap A$$
+	$$A \cup A ~=~ A ~=~ A \cap A$$
 	\item Komutativnost:
-	$$A \cup B = B \cup A$$
-	$$A \cap B = B \cap A$$
+	$$A \cup B ~=~ B \cup A$$
+	$$A \cap B ~=~ B \cap A$$
 	\item Asociativnost:
-	$$(A \cup B) \cup C = A \cup (B \cup C)$$
-	$$(A \cap B) \cap C = A \cap (B \cap C)$$
+	$$(A \cup B) \cup C ~=~ A \cup (B \cup C)$$
+	$$(A \cap B) \cap C ~=~ A \cap (B \cap C)$$
 	\item Distributivnost:
-	$$(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$$
-	$$(A \cap B) \cup C = (A \cup C) \cap (B \cup C)$$
+	$$(A \cup B) \cap C ~=~ (A \cap C) \cup (B \cap C)$$
+	$$(A \cap B) \cup C ~=~ (A \cup C) \cap (B \cup C)$$
 	\item de Morganova zakona:
-	$$(A \cap B)^C = A^C \cup B^C$$
-	$$(A \cup B)^C = A^C \cap B^C$$
+	$$(A \cap B)^C ~=~ A^C \cup B^C$$
+	$$(A \cup B)^C ~=~ A^C \cap B^C$$
 	Še več:
-	$$\left( \bigcup_i A_i \right)^C = \bigcap_i {A_i}^C$$
-	$$\left( \bigcap_i A_i \right)^C = \bigcup_i {A_i}^C$$
+	$$\left( \bigcup_i A_i \right)^C ~=~ \bigcap_i {A_i}^C$$
+	$$\left( \bigcap_i A_i \right)^C ~=~ \bigcup_i {A_i}^C$$
 \end{enumerate}
 \end{opomba}
 \vspace{0.5cm}
@@ -118,9 +118,9 @@ V splošnem ni vsaka podmnožica $A \subset \Omega$ dogodek.
 \textit{Neprazna} družina podmnožic (dogodkov) $\mathcal{F}$ v $\Omega$ je $\sigma$-algebra, če velja:
 \begin{enumerate}
 	\item \textit{Zaprtost komponente}:
-	$$A \in \mathcal{F} \Rightarrow A^C \in \mathcal{F}$$
+	$$A \in \mathcal{F} ~\Rightarrow~ A^C \in \mathcal{F}$$
 	\item \textit{Zaprtost števne unije}:
-	$$A_1, A_2, A_3, \ldots \in \mathcal{F} \Rightarrow \bigcup_{i=1}^{\infty} A_i \in \mathcal{F}$$
+	$$A_1, A_2, A_3, \ldots \in \mathcal{F} ~\Rightarrow~ \bigcup_{i=1}^{\infty} A_i \in \mathcal{F}$$
 \end{enumerate}
 \end{definicija}
 \vspace{0.5cm}
@@ -128,7 +128,7 @@ V splošnem ni vsaka podmnožica $A \subset \Omega$ dogodek.
 \begin{opomba}
 
 Če v (2) zahtevamo manj:
-$$A, B \in \mathcal{F} \Rightarrow A \cup B \in \mathcal{F},$$
+$$A, B \in \mathcal{F} ~\Rightarrow~ A \cup B \in \mathcal{F},$$
 je $\mathcal{F}$ \textit{algebra}. V algebri imamo torej zaprtost za končne unije in končne preseke, medtem ko je $\sigma$-algebra zaprta celo za števne preseke.
 
 \end{opomba}
@@ -140,7 +140,7 @@ Naj bo $\mathcal{F}$ $\sigma$-algebra, $\Omega$ vzorčni prostor. \textit{Verjet
 	\item $\mathbb{P} \geq 0$, za $\forall A \in \mathbb{F}$
 	\item $\mathbb{P}(\Omega) = 1$
 	\item Za poljubne paroma nerazdružljive dogodke velja
-	$$\mathbb{P}\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{n=1}^{\infty} \mathbb{P}(A_i)$$
+	$$\mathbb{P}\left( \bigcup_{i=1}^{\infty} A_i \right) ~=~ \sum_{n=1}^{\infty} \mathbb{P}(A_i)$$
 \end{enumerate}
 Trojico $(\mathcal{F}, \Omega, \mathbb{P})$ imenujemo \textit{verjetnostni prostor}.
 \end{definicija}
@@ -177,8 +177,8 @@ $\mathbb{P}(A_1 \cup \ldots \cup A_n) = \mathbb{P}(A_1) + \ldots + \mathbb{P}(A_
 	$\mathlarger{\bigcup_{i=1}^{\infty} A_i} = \mathlarger{\bigcup_{i=1}^{\infty} C_i}$ \\
 	Torej je 
 	\begin{align*}
-	\mathbb{P}(\bigcup_{i=1}^{\infty} A_i = \mathbb{P}(\bigcup_{i=1}^{\infty} C_i) &= \sum_{i=1}^{\infty} \mathbb{P}(C_i) = \\
-	= \lim_{n \rightarrow \infty} \sum_{i=1}^{n} \mathbb{P}(C_i) &= \lim_{n \rightarrow \infty} \mathbb{P}(\bigcup_{i=1}^{n} C_i) = \lim_{n \rightarrow \infty} \mathbb{P}(A_n) \\
+	\mathbb{P}(\bigcup_{i=1}^{\infty} A_i ~=~ \mathbb{P}(\bigcup_{i=1}^{\infty} C_i) ~&=~ \sum_{i=1}^{\infty} \mathbb{P}(C_i) ~= \\
+	=~ \lim_{n \rightarrow \infty} \sum_{i=1}^{n} \mathbb{P}(C_i) ~&=~ \lim_{n \rightarrow \infty} \mathbb{P}(\bigcup_{i=1}^{n} C_i) ~=~ \lim_{n \rightarrow \infty} \mathbb{P}(A_n) \\
 	\end{align*}
 	\item[(ii)] Ker je $B_1 \supseteq B_2 \supseteq B_3 \supseteq \ldots$, sledi ${B_1}^C \subseteq {B_2}^C \subseteq {B_3}^C \subseteq \ldots$ \\
 	Po (\textit{i}) je $\mathbb{P}(\bigcup_{i=1}^{\infty} {B_i}^C) = \mathlarger{\lim_{i \rightarrow \infty} \mathbb{P}({D_i}^C)}$, toda $\mathlarger{\bigcup_{i=1}^{\infty} {B_i}^C = \left( \bigcap_{i=1}^{\infty} B_i \right)^C}$. \\
@@ -201,7 +201,7 @@ $\mathbb{P}(A_1 \cup \ldots \cup A_n) = \mathbb{P}(A_1) + \ldots + \mathbb{P}(A_
 
 \textit{Pogojna verjetnost} dogodka $A$ glede na dogodek $B$, $\mathbb{P}(A | B)$, je verjetnost dogodka $A$ če vemo, da se je zgodil dogodek $B$.
 Posplošimo:
-$$\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}$$
+$$\mathbb{P}(A | B) ~=~ \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -209,7 +209,7 @@ $$\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}$$
 \begin{posledica}
 
 Iz definicije sledi
-$$\mathbb{P}(A \cap B) = \mathbb{P}(A | B) \cdot \mathbb{P}(B).$$
+$$\mathbb{P}(A \cap B) ~=~ \mathbb{P}(A | B) \cdot \mathbb{P}(B).$$
 Če posplošimo na $n$ dogodkov dobimo
 $$\mathbb{P}(A_1 \cap A_2 \cap \ldots \cap A_n) = \mathbb{P}(A_1) \cdot \mathbb{P}(A_2 | A_1) \cdot \ldots \cdot \mathbb{P}(A_n | A_1 \cap \ldots \cap A_{n-1}).$$
 Če velja $\mathbb{P}(A) = \mathbb{P}(A | B)$, sta dogodka neodvisna.
@@ -220,9 +220,9 @@ $$\mathbb{P}(A_1 \cap A_2 \cap \ldots \cap A_n) = \mathbb{P}(A_1) \cdot \mathbb{
 \begin{izrek}[Izrek o popolni verjetnosti]
 
 Naj bo $(H_i)_i$ popoln sistem dogodkov. Potem je 
-$$A = A \cap \Omega = A \cap {\left( \bigcup_i H_i \right)} = \bigcup_i A \cap H_i$$
+$$A = A \cap \Omega ~=~ A \cap {\left( \bigcup_i H_i \right)} ~=~ \bigcup_i A \cap H_i$$
 in iz tega sledi
-$$\mathbb{P}(A) = \sum_i \mathbb{P}(A \cap H_i) = \sum_i \mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i).$$
+$$\mathbb{P}(A) ~=~ \sum_i \mathbb{P}(A \cap H_i) ~=~ \sum_i \mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i).$$
 To je formula za \textit{popolno verjetnost}.
 
 \end{izrek}
@@ -231,9 +231,9 @@ To je formula za \textit{popolno verjetnost}.
 \begin{posledica}[Bayesova formula]
 
 Iz definicije pogojne verjetnosti vemo
-$$\mathbb{P}(H_i | A) = \frac{\mathbb{P}(H_i \cap A}{\mathbb{P}(A)} = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb{P}(A)}.$$
+$$\mathbb{P}(H_i | A) ~=~ \frac{\mathbb{P}(H_i \cap A}{\mathbb{P}(A)} ~=~ \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb{P}(A)}.$$
 Če v imenovalec vstavimo izrek o popolni verjetnosti, dobimo \textit{Bayesovo formulo}:
-$$\mathbb{P}(H_i | A) = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb{P}(H_1) \cdot \mathbb{P}(A | H_1) + \ldots + \mathbb{P}(H_n) \cdot \mathbb{P}(A | H_n)} = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\sum_i \mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}$$
+$$\mathbb{P}(H_i | A) ~=~ \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb{P}(H_1) \cdot \mathbb{P}(A | H_1) + \ldots + \mathbb{P}(H_n) \cdot \mathbb{P}(A | H_n)} ~=~ \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\sum_i \mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}$$
 
 \end{posledica}
 \vspace{0.5cm}
@@ -241,9 +241,9 @@ $$\mathbb{P}(H_i | A) = \frac{\mathbb{P}(H_i) \cdot \mathbb{P}(A | H_i)}{\mathbb
 \begin{definicija}[Neodvisnost $2$ dogodkov]
 
 Dogodka $A$ in $B$ sta \textit{neodvisna}, če je 
-$$\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B).$$
+$$\mathbb{P}(A \cap B) ~=~ \mathbb{P}(A) \cdot \mathbb{P}(B).$$
 Če je $\mathbb{P}(B) > 0$ to enakost lahko zapišemo kot
-$$\mathbb{P}(A) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} = \mathbb{P}(A | B).$$
+$$\mathbb{P}(A) ~=~ \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} ~=~ \mathbb{P}(A | B).$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -251,7 +251,7 @@ $$\mathbb{P}(A) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} = \mathbb{P}(A | B)
 \begin{definicija}[Neodvisnost $k$ dogodkov]
 
 Dogodki $(A_i)_i$ so \textit{neodvisni}, če za poljuben končen nabor različnih dogodkov $A_{i_1}, A_{i_2}, \ldots, A_{i_k}$ velja
-$$\mathbb{P}(A_{i_1} \cap A_{i_2} \cap \ldots \cap A_{i_k}) = \mathbb{P}(A_{i_1}) \cdot \mathbb{P}(A_{i_2}) \cdot \ldots \cdot \mathbb{P}(A_{i_k}).$$
+$$\mathbb{P}(A_{i_1} \cap A_{i_2} \cap \ldots \cap A_{i_k}) ~=~ \mathbb{P}(A_{i_1}) \cdot \mathbb{P}(A_{i_2}) \cdot \ldots \cdot \mathbb{P}(A_{i_k}).$$
 Če zahtevamo le za $k = 2$, torej $A_i$ in $A_j$ sta neodvisna le za $i \neq j$, potem rečemo, da so dogodki \textit{paroma neodvisni}. To je šibkejši pogoj kot neodvisnost.
 
 \end{definicija}
@@ -278,7 +278,7 @@ Imejmo zaporedje $n$ neodvisnih ponovitev poskusa, določenega z verjetnostnim p
 Z $A_n(k)$ označimo dogodek, da se $A$ zgodi natanko $k$-krat, $k = 0, 1, 2, \ldots, n$. \\
 
 \noindent $A_n(k)$ je \textit{disjunktivna unija} $\mathlarger{\binom{n}{k}}$ dogodkov, da se $A$ zgodi na predpisanih $k$ mestih; na ostalih pa $A^C$. Verjetnost le teh dogodkov je $p^k \cdot q^{n-k}$. Zato velja \textit{Bernoullijeva formula}
-$$\mathbb{P}_n(k) = \binom{n}{k} \cdot p^k \cdot q^{n-k}.$$
+$$\mathbb{P}_n(k) ~=~ \binom{n}{k} \cdot p^k \cdot q^{n-k}.$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -288,9 +288,9 @@ $$\mathbb{P}_n(k) = \binom{n}{k} \cdot p^k \cdot q^{n-k}.$$
 ~\\
 \begin{enumerate}
 	\item[a)] \textsc{Poissonova formula}: če je $p$ blizu $0$ in $n$ velik, potem je
-	$$\mathbb{P}_n(k) \approx \frac{\lambda^k}{k!} \cdot e^{-\lambda}, ~\text{kjer je}~ \lambda = n \cdot p$$
-	\item[b)] \textsc{Laplaceova formula}: za velike $n$ velja
-	$$\mathbb{P}_n(k) \approx \frac{1}{\sqrt{2 \pi n p q}} \cdot e^{-\frac{(k-np)^2}{2npq}}$$
+	$$\mathbb{P}_n(k) ~\approx~ \frac{\lambda^k}{k!} \cdot e^{-\lambda}, ~~~\text{kjer je}~ \lambda = n \cdot p$$
+	\item[b)] \textsc{Laplaceova lokalna formula}: za velike $n$ velja
+	$$\mathbb{P}_n(k) ~\approx~ \frac{1}{\sqrt{2 \pi n p q}} \cdot e^{-\frac{(k-np)^2}{2npq}}$$
 \end{enumerate}
 
 \end{trditev}
@@ -327,15 +327,15 @@ Funkcija $F_X: \mathbb{R} \rightarrow \mathbb{R}$, definirana s $F_X(x) = \mathb
 \begin{enumerate}
 	\item $0 \leq F(x) \leq 1$ za $\forall x \in \mathbb{R}$
 	\item  $F$ je naraščajoča funkcija:
-	$$x_1 < x_2 \Rightarrow F(x_1) \leq F(x_2)$$
+	$$x_1 < x_2 ~\Rightarrow~ F(x_1) \leq F(x_2)$$
 	\item $\mathlarger{\lim_{x \rightarrow \infty} F(x) = 1}$, $\mathlarger{\lim_{x \rightarrow -\infty} F(x) = 0}$
 	\item $F$ je \textit{z desne zvezna}, torej $F(x+) = F(x)$ za $\forall x \in \mathbb{R}$, kjer je $\mathlarger{F(x+) = \lim_{h \searrow 0} F(x+h)}$ desna limita.
 	\item $F(x-) = \mathbb{P}(X < x)$ 
 	\begin{align*}
-	\mathbb{P}(x_1 < X \leq x_2) &= F(x_2) - F(x_1) \\
-	\mathbb{P}(x_1 < X < x_2) &= F(x_2-) - F(x_1) \\
-	\mathbb{P}(x_1 \leq X \leq x_2) &= F(x_2) - F(x_1-) \\
-	\mathbb{P}(x_1 \leq X < x_2) &= F(x_2-) - F(x_1-) 
+	\mathbb{P}(x_1 < X \leq x_2) ~&=~ F(x_2) - F(x_1) \\
+	\mathbb{P}(x_1 < X < x_2) ~&=~ F(x_2-) - F(x_1) \\
+	\mathbb{P}(x_1 \leq X \leq x_2) ~&=~ F(x_2) - F(x_1-) \\
+	\mathbb{P}(x_1 \leq X < x_2) ~&=~ F(x_2-) - F(x_1-) 
 	\end{align*}
 \end{enumerate}
 \end{trditev}
@@ -344,24 +344,24 @@ Funkcija $F_X: \mathbb{R} \rightarrow \mathbb{R}$, definirana s $F_X(x) = \mathb
 \begin{definicija}[Diskretne slučajne spremenljivke]
 
 Slučajna spremenljivka je \textit{diskretno porazdeljena}, če je njena zaloga vrednosti \textit{končna} ali \textit{števna končna} množica. Naj bo $\{ x_1, x_2, \ldots \}$ zaloga vrednosti. Vpeljemo verjetnostno funkcijo $p_k = \mathbb{P}(X = x_k)$, $k = 1, 2, 3, \ldots.$ Ker so $\{ (X = x_k) \}_k$ \textit{poln} sistem dogodkov, je 
-$$\sum_k p_k = 1.$$
+$$\sum_k p_k ~=~ 1.$$
 $X$ lahko zapišemo s shemo 
 $X: \begin{pmatrix}
 	x_1 & x_2 & \cdots & x_n \\
 	p_1 & p_2 & \cdots & p_n
 \end{pmatrix}$. Porazdelitvena funkcija:
-$$F(x) = \mathbb{P}(X \leq x) = \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (X = x_k) \right) = \sum_{k ~\mid~ x_k \leq x} p_k.$$ \\
+$$F(x) ~=~ \mathbb{P}(X \leq x) ~=~ \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (X = x_k) \right) ~=~ \sum_{k ~\mid~ x_k \leq x} p_k.$$ \\
 
 \noindent Pogoste diskretne porazdelitve:
 \begin{enumerate}
 	\item \textsc{Enakomerna porazdelitev} na $n$ točkah $x_1, \ldots, x_n$:
-	$$X: \begin{pmatrix}
+	$$X: ~\begin{pmatrix}
 		x_1 & x_2 & \cdots & x_n \\
 		\frac{1}{n} & \frac{1}{n} & \cdots & \frac{1}{n}
 	\end{pmatrix}$$
 	
 	\item \textsc{Bernoullijeva porazdelitev}, $Ber(p)$, ~$p \in (0, 1)$:
-	$$X: \begin{pmatrix}
+	$$X: ~\begin{pmatrix}
 		0 & 1 \\
 		(1-p) & p
 	\end{pmatrix}$$
@@ -372,7 +372,7 @@ $$F(x) = \mathbb{P}(X \leq x) = \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (
 	\end{cases}$$
 	
 	\item \textsc{Binomska porazdelitev}, $Bin(n, p)$, ~$n \in \mathbb{R}$, ~$p \in (0, 1)$:
-	$$X: \begin{pmatrix}
+	$$X: ~\begin{pmatrix}
 		0 & 1 & 2 & \cdots & n \\
 		p_0 & p_1 & p_2 & \cdots & p_n
 	\end{pmatrix},$$
@@ -380,25 +380,25 @@ $$F(x) = \mathbb{P}(X \leq x) = \mathbb{P}\left( \bigcup_{k ~\mid~ x_k \leq x} (
 	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \binom{n}{k} p^k (1 - p)^{n-k}.$$
 	
 	\item \textsc{Poisonnova porazdelitev}, $Poi(\lambda)$, ~$\lambda = n \cdot p > 0$:
-	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \mathbb{P}_n(k) ~=~ \frac{\lambda^k}{k!} \cdot e^{-\lambda}, ~k = 0, 1, \ldots$$
+	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \mathbb{P}_n(k) ~=~ \frac{\lambda^k}{k!} \cdot e^{-\lambda}, ~~~k = 0, 1, \ldots$$
 	Sledi:
 	$$\sum_{k=0}^{\infty} ~=~ e^{-\lambda} \sum_{k=0}^{\infty} \frac{\lambda^k}{k!} ~=~ e^{-\lambda} \cdot e^{\lambda} ~=~ 1.$$
 	
 	\item \textsc{Geometrijska porazdelitev}: $Geo(p), ~p \in (0, 1)$.\\
 	$(X = k)$ je dogodek, da se $A$ zgodi prvič v $k$-ti ponovitvi:
-	$$p_k ~=~ \mathbb{P}(X = k) ~=~ p \cdot q^{k-1}, ~k = 1, 2, 3, \ldots$$
+	$$p_k ~=~ \mathbb{P}(X = k) ~=~ p \cdot q^{k-1}, ~~~k = 1, 2, 3, \ldots$$
 	Torej $\underbrace{A^C \cdot \ldots \cdot A^C}_{k-1} \cdot A = \underbrace{q \cdot \ldots \cdot q}_{k-1} \cdot p = p \cdot q^{k-1}.$ Velja:
 	$$\sum_{k=1}^{\infty} p_k ~=~ p \sum_{k=1}^{\infty} q^{k-1} ~=~ \frac{p}{1-q} = 1$$
 	
 	\item \textsc{Pascalova porazdelitev}: $Pas(m, p), ~m \in \mathbb{N}, ~p \in (0, 1).$\\
 	$(X = k)$ je dogodek, da se $A$ zgodi $m$-tič pri $k$-ti ponovitvi:
-	$$p_k ~=~ \binom{k-1}{m-1} \cdot p^m \cdot q^{k-m}, ~~k = m, m+1, \ldots$$
+	$$p_k ~=~ \binom{k-1}{m-1} \cdot p^m \cdot q^{k-m}, ~~~k = m, m+1, \ldots$$
 	
 	\item \textsc{Hipergeometrijska porazdelitev}: $Hip(n; M, N), ~n \leq \min{\{M, N-M\}}$\\
 	V posodi je $M$ belih in $(N-M)$ črnih kroglic. Slučajno izvlečemo $n$ kroglic. $X$ naj pomeni število belih kroglic med izvlečenimi, kjer za $k = 0, 1, \ldots, n$ velja:
 	$$p_k ~=~ \mathbb{P}(X = k) ~=~ \frac{\binom{M}{k} \binom{N-M}{n-k}}{\binom{N}{n}}$$
 	Ker je $\left[(X = k)\right]_{k=0}^n$ popoln sistem dogodkov je $\mathlarger{\sum_{k=0}^n p_k = 1}$, torej je
-	$$\sum_{k=0}^n \binom{M}{n} \cdot \binom{N-M}{n-k} = \binom{N}{n}.$$
+	$$\sum_{k=0}^n \binom{M}{n} \cdot \binom{N-M}{n-k} ~=~ \binom{N}{n}.$$
 \end{enumerate}
 
 \end{definicija}
@@ -418,36 +418,36 @@ $$\mathbb{P}(x_1 \leq X \leq x_2) ~=~ F(x_2) - F(x_1-) ~=~ \int_{x_1}^{x_2} p(t)
 \noindent Nekatere pomembnejše zvezne porazdelitve:
 \begin{enumerate}
 	\item \textsc{Enakomerna zvezna porazdelitev} na $[a, b]$:
-	 $$p(x) = \begin{cases}
+	 $$p(x) ~=~ \begin{cases}
 	 	\frac{1}{b-a} &; ~\text{če}~ a \leq x \leq b \\
 	 	0 &; ~\text{sicer}
 	 \end{cases}$$
-	 $$F(x) = \int_{-\infty}^x p(t) ~dt = \begin{cases}
+	 $$F(x) ~=~ \int_{-\infty}^x p(t) ~dt ~=~ \begin{cases}
 	 	0 &; ~\text{če}~ x \leq a \\
 	 	\frac{x-a}{b-a} &; ~\text{če}~ a \leq x \leq b \\
 	 	1 &; ~\text{če}~ x \geq b
 	 \end{cases}$$
 	 
 	\item \textsc{Normalna ali Gaussova porazdelitev}: $N(\mu, \sigma), ~\mu \in \mathbb{R}, ~\sigma > 0$
-	$$\mathlarger{p(x)= \frac{1}{\sigma \sqrt{2 \pi}} \cdot e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2}}$$
+	$$\mathlarger{p(x)~=~ \frac{1}{\sigma \sqrt{2 \pi}} \cdot e^{-\frac{1}{2} \left( \frac{x-\mu}{\sigma} \right)^2}}$$
 V vseh primerih je ploščina pod grafom enaka $1$. \\
 
 $N(0, 1)$: standardna normalna porazdelitev
-$$\mathlarger{f(x) = \frac{1}{\pi \sqrt{2}} \cdot e^{-\frac{x^2}{2}}}$$
+$$\mathlarger{f(x) ~=~ \frac{1}{\pi \sqrt{2}} \cdot e^{-\frac{x^2}{2}}}$$
 Laplaceova formula: za velike $n$ je $Bin(n, p) \approx N(np, \sqrt{npq})$
 
 	\item \textsc{Eksponentna porazdelitev}: $Exp(\lambda), ~\lambda > 0$
-	$$p(x) = \begin{cases}
+	$$p(x) ~=~ \begin{cases}
 		\lambda \cdot e^{-\lambda x} &; ~\text{če}~ x \geq 0 \\
 		0 &; ~\text{sicer}~
 	\end{cases}$$
-	$$F(x) = \begin{cases}
+	$$F(x) ~=~ \begin{cases}
 		1 - e^{-\lambda x} &; ~\text{če}~ x \leq 0 \\
 		0 &; ~\text{sicer}
 	\end{cases}$$
 	
 	\item \textsc{Cauchyjeva porazdelitev}:
-	$$p(x) = \frac{1}{\pi (1 + x^2)}, ~~x \in \mathbb{R}$$
+	$$p(x) ~=~ \frac{1}{\pi (1 + x^2)}, ~~~x \in \mathbb{R}$$
 \end{enumerate}
 
 \end{definicija}
@@ -470,11 +470,11 @@ Laplaceova formula: za velike $n$ je $Bin(n, p) \approx N(np, \sqrt{npq})$
 \begin{definicija}
 
 \textit{Porazdelitvena funkcija} $F_X: \mathbb{R}^n \rightarrow \mathbb{R}$ je definirana s predpisom $F_X(x) = F_{(X_1, \ldots, X_n)}(x_1, \ldots, x_n) = \mathbb{P}(X_1 \leq x_1, \ldots, X_n \leq x_n)$. Za $\forall x \in \mathbb{R}^n$ je $F(x) \in [0, 1]$; glede na vsako spremenljivko je $F$ naraščajoča in z desne zvezna;
-$$\lim_{x_i \rightarrow \infty, ~\forall i} F(x_1, \ldots, x_n) = 1, ~~\lim_{x_i \rightarrow -\infty, ~\forall i} F(x_1, \ldots, x_n) = 0.$$
+$$\lim_{x_i \rightarrow \infty, ~\forall i} F(x_1, \ldots, x_n) ~=~ 1, ~~\lim_{x_i \rightarrow -\infty, ~\forall i} F(x_1, \ldots, x_n) ~=~ 0.$$
 Če pošljemo proti $\infty$ samo nekatere spremenljivke, dobimo porazdelitveno funkcijo pod vektorjem, npr.
-$$\lim_{x_n \rightarrow \infty} F(x_1, \ldots, x_n) = F_{(X_1, \ldots, X_{n-1})}(x_1, x_2, \ldots, x_{n-1}).$$
+$$\lim_{x_n \rightarrow \infty} F(x_1, \ldots, x_n) ~=~ F_{(X_1, \ldots, X_{n-1})}(x_1, x_2, \ldots, x_{n-1}).$$
 Robna porazdelitve funkcija $X_1$, \textit{robna (marginalna)} porazdelitev:
-$$\lim_{\substack{x_2 \rightarrow \infty \\ \cdots \\ x_n \rightarrow \infty}} = F_{X_1}(x_1)$$
+$$\lim_{\substack{x_2 \rightarrow \infty \\ \cdots \\ x_n \rightarrow \infty}} ~=~ F_{X_1}(x_1)$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -485,8 +485,8 @@ Slučajne spremenljivke $X_1, \ldots, X_n$ v slučajnem vektorju $X = (X_1, \ldo
 $$F_X(x_1, \ldots, x_n) = F_{X_1}(x_1) \cdot \ldots \cdot F_{X_n}(x_n).$$
 Drugače:
 \begin{align*}
-\mathbb{P}(X_1 \leq x_1, \ldots, X_n \leq x_n) &= \mathbb{P}(X_1 \leq x_1) \cdot \ldots \cdot \mathbb{P}(X_n \leq x_n) \\ 
-&= (X_1 \leq x_1, \ldots, X_n \leq x_n) ~~\text{so neodvisne}.
+\mathbb{P}(X_1 \leq x_1, \ldots, X_n \leq x_n) ~&=~ \mathbb{P}(X_1 \leq x_1) \cdot \ldots \cdot \mathbb{P}(X_n \leq x_n) \\ 
+~&=~ (X_1 \leq x_1, \ldots, X_n \leq x_n) ~~\text{so neodvisne}.
 \end{align*}
 
 \end{definicija}
@@ -494,7 +494,7 @@ Drugače:
 
 \begin{trditev}
 
-Naj bo $(X, Y)$ diskreten slučajni vektor; \\$p_{i,j} = \mathbb{P}(X = x_i, Y = y_j)$, $p_i = \mathbb{P}(X = x_i), q_j = \mathbb{P}(Y = y_j)$, $i = 1, 2, \ldots$, $j = 1, 2, \ldots$.
+Naj bo $(X, Y)$ diskreten slučajni vektor; \\$p_{i,j} = \mathbb{P}(X = x_i, Y = y_j)$, $p_i ~=~ \mathbb{P}(X = x_i), q_j ~=~ \mathbb{P}(Y = y_j)$, $i = 1, 2, \ldots$, $j = 1, 2, \ldots$.
 $$X ~\text{in}~ Y ~\text{sta neodvisni slučajni spremenljivki}~ \Leftrightarrow ~p_{i,j} = p_i \cdot q_j, ~~\forall i, ~\forall j $$
 
 \end{trditev}
@@ -507,19 +507,19 @@ $$X ~\text{in}~ Y ~\text{sta neodvisni slučajni spremenljivki}~ \Leftrightarrow
 
 \begin{definicija}
 
-Za končno slučajno spremenljivko $X: \begin{pmatrix}
+Za končno slučajno spremenljivko $X: ~\begin{pmatrix}
 	x_1 & x_2 & \cdots & x_n \\
 	p_1 & p_2 & \cdots & p_n
 \end{pmatrix}$ je matematično upanje definirano kot 
 $$E(x) ~=~ \sum_{k=1}^n x_k \cdot p_k.$$
 Naj ima seda $X$ neskončno zalogo vrednosti. Če je $X$ \textit{diskretna} s $p_k = \mathbb{P}(X = x_k)$ ($k \in \mathbb{N}$), potem $X$ ima matematično upanje, če je 
-$$\sum_{k=1}^{\infty} |x_k| \cdot p_k < \infty ~~\text{(je končno)};$$
+$$\sum_{k=1}^{\infty} |x_k| \cdot p_k ~<~ \infty ~~~\text{(je končno)};$$
 tedaj je matematično upanje definirano kot vsota vrste 
-$$E(x) := \sum_{k=1}^{\infty} x_k \cdot p_k.$$
+$$E(x) ~:=~ \sum_{k=1}^{\infty} x_k \cdot p_k.$$
 Če je $X$ \textit{zvezna} z gostoto $p(x)$, potem rečemo, da $X$ ima matematično upanje, če je
-$$\int_{-\infty}^{\infty} |x| \cdot p_k(x) ~dx < \infty;$$
+$$\int_{-\infty}^{\infty} |x| \cdot p_k(x) ~dx ~<~ \infty;$$
 tedaj je matematično upanje definirano kot
-$$E(x) := \int_{-\infty}^{\infty} x \cdot p(x) ~dx.$$
+$$E(x) ~:=~ \int_{-\infty}^{\infty} x \cdot p(x) ~dx.$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -528,7 +528,7 @@ $$E(x) := \int_{-\infty}^{\infty} x \cdot p(x) ~dx.$$
 
 Naj bo $f: \mathbb{R} \rightarrow \mathbb{R}$ funkcija.
 \begin{enumerate}
-	\item[a)] Če je $X: \begin{pmatrix}
+	\item[a)] Če je $X: ~\begin{pmatrix}
 	x_1 & x_2 & x_3 & \cdots \\
 	p_1 & p_2 & p_3 & \cdots
 \end{pmatrix}$, potem je 
@@ -545,7 +545,7 @@ Naj bo $f: \mathbb{R} \rightarrow \mathbb{R}$ funkcija.
 \begin{posledica}
 
 Slučajna spremenljivka $X$ ima matematično upanje $\Leftrightarrow$ ko ga ima slučajna spremenljivka $(X)$. Tedaj velja
-$$|E(x)| \leq E(|x|).$$
+$$|E(x)| ~\leq~ E(|x|).$$
 
 \end{posledica}
 \vspace{0.5cm}
@@ -561,7 +561,7 @@ $$E(a \cdot X) ~=~ a \cdot E(x).$$
 \begin{trditev}
 
 Naj bo $f: \mathbb{R}^2 \rightarrow \mathbb{R}$ funkcija, $(X, Y)$ diskretno porazdeljen slučajni vektor:
-$$p_{ij} = \mathbb{P}(X = x_i, Y = y_i), ~~i,j = 1, 2, \ldots$$
+$$p_{ij} ~=~ \mathbb{P}(X = x_i, Y = y_i), ~~~i,j = 1, 2, \ldots$$
 Potem je $f(X, Y): \Omega \rightarrow \mathbb{R}$ slučajna spremenljivka in velja
 $$E(f(X, Y)) ~=~ \sum_i \sum_j f(x_i, y_j) \cdot p_{ij},$$
 če le vrsta absolutno konvergira.
@@ -589,8 +589,8 @@ kjer so $a_1, a_2, \ldots, a_n \in \mathbb{R}$.
 \begin{trditev}
 
 Če obstaja $E(X^2)$ in $E(Y^2)$, potem obstaja tudi $E(|XY|)$ in velja
-$$E(|XY|) \leq \sqrt{E(X^2) \cdot E(Y^2)} ~~(\textit{Cauchy-Schwarzova neenakost})$$
-Enakost velja $\Leftrightarrow$ $|Y| = \sqrt{\cfrac{E(Y^2)}{E(X^2)}} \cdot |X|$ z verjetnostjo $1$.
+$$E(|XY|) ~\leq~ \sqrt{E(X^2) \cdot E(Y^2)} ~~(\textit{Cauchy-Schwarzova neenakost})$$
+Enakost velja $~\Leftrightarrow~$ $|Y| = \sqrt{\cfrac{E(Y^2)}{E(X^2)}} \cdot |X|$ z verjetnostjo $1$.
 
 \end{trditev}
 \vspace{0.5cm}
@@ -598,7 +598,7 @@ Enakost velja $\Leftrightarrow$ $|Y| = \sqrt{\cfrac{E(Y^2)}{E(X^2)}} \cdot |X|$ 
 \begin{posledica}
 
 Če obstaja $E(X^2)$, potem obstaja tudi $E(|X|)$ in velja
-$$(E(|X|))^2 \leq E(X^2).$$
+$$(E(|X|))^2 ~\leq~ E(X^2).$$
 
 \end{posledica}
 \vspace{0.5cm}
@@ -606,7 +606,7 @@ $$(E(|X|))^2 \leq E(X^2).$$
 \begin{trditev}
 
 Naj bosta $X$ in $Y$ \textit{neodvisni} slučajni spremenljivki, ki imata matematično upanje. Potem obstaja tudi matematično upanje $X \cdot Y$ in velja
-$$E(X \cdot Y) = E(X) \cdot E(Y).$$
+$$E(X \cdot Y) ~=~ E(X) \cdot E(Y).$$
 
 \end{trditev}
 \vspace{0.5cm}
@@ -977,12 +977,45 @@ oziroma ekvivalentno:
 $$F(x_p-) ~\leq~ p ~\leq~ F(x_p), ~~0 < p < 1.$$
 Če je $X$ zvezno porazdeljena, je pogoj za kvantil:
 $$F(x_p) ~=~ p ~~~\text{oziroma}~~~ \int_{-\infty}^{x_p} p_X(t) dt ~=~ p.$$
+\textit{(Semiinter)kvartilni razmik} je
+$$s ~=~ \frac{1}{2}(x_{\frac{3}{4}} - x_{\frac{1}{4}})$$
+in je nadomestek za standardno deviacijo.
 
 \end{definicija}
 \vspace{0.5cm}
 
 % #################################################################################################
 
+\section{MOMENTNO RODOVNE FUNKCIJE}
+\vspace{0.5cm}
+
+\begin{definicija}
+
+$$M_X(t) ~=~ \mathbb{E}(e^{tX})$$
+az $t \in \mathbb{R}$ za katere obstaja matematično upanje, torej $\mathbb{E}(e^{tX}) < \infty$. \\
+
+\noindent Kadar ima $X$ vrednosti $\mathbb{N} \cup \{0\}$, je
+$$M_X(t) ~=~ \mathbb{E}((e^t)^X) ~=~ G_X(e^t),$$
+torej gre za posplošitev rodovne funkcije. \\
+
+\noindent Če je $X$ \textit{zvezno porazdeljeno} z gostoto $p(x)$, je
+$$M_X(t) ~=~ \int_{-\infty}^{\infty} e^{tx} p(x) dx. ~~~\text{(Laplaceova transformacija funkcije $p$)}$$
+
+\end{definicija}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Naj obstaja $\delta > 0$, da je $M_X(t) < \infty$ za $\forall \in (-\delta, delta)$. Potem je porazdelitev za $X$ natanko določena z $M_X$, vsi začetni momenti obstajajo,
+$$z_k ~=~ \mathbb{E}(X^k) ~=~ {M_X}^{(k)}(0)$$
+za $\forall k \in \mathbb{N}$ in
+$$M_X(t) ~=~ \sum_{k=0}^{\infty} \frac{z_k}{k!} t^k$$
+za $\forall t \in (-\delta, \delta)$.
+
+\end{izrek}
+\vspace{0.5cm}
+
+% #################################################################################################
 
 
 \end{document}
