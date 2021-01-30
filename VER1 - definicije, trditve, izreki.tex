@@ -621,9 +621,9 @@ $$E(X \cdot Y) ~=~ E(X) \cdot E(Y).$$
 \begin{definicija}
 
 Naj obstaja $E(X^2)$. \textit{Disperzija} oz. \textit{varianca} je definirana kot
-$$D(X) \equiv Var(X) := E((X - E(X))^2).$$
+$$D(X) ~\equiv~ Var(X) ~:=~ E((X - E(X))^2).$$
 $D(X)$ meri razpršenost okoli $E(X)$. Velja
-$$D(X) = E(X^2) - (E(X)^2)$$
+$$D(X) ~=~ E(X^2) - (E(X)^2)$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -631,12 +631,12 @@ $$D(X) = E(X^2) - (E(X)^2)$$
 \begin{trditev}[Lastnosti $D(X)$]
 ~\\
 \begin{enumerate}
-	\item $D(X) \geq 0$ \\
+	\item $D(X) ~\geq~ 0$ \\
 	$D(X) = 0 ~\Leftrightarrow~ \mathbb{P}(X = E(X)) = 1$
-	\item $D(a \cdot X) = a^2 \cdot D(X), ~~a \in \mathbb{R}$
+	\item $D(a \cdot X) ~=~ a^2 \cdot D(X), ~~~a \in \mathbb{R}$
 	\item Za $\forall a \in \mathbb{R}$ je 
-	$$E((X - a)^2) \geq D(X)$$
-	Enačaj velje $\Leftrightarrow$ $a = E(X)$.
+	$$E((X - a)^2) ~\geq~ D(X)$$
+	Enačaj velje $~\Leftrightarrow~$ $a = E(X)$.
 \end{enumerate}
 
 \end{trditev}
@@ -645,9 +645,9 @@ $$D(X) = E(X^2) - (E(X)^2)$$
 \begin{definicija}
 
 \textit{Standardna deviacija} oz. \textit{standardni odklon} je definiran kot
-$$\sigma(X) := \sqrt{D(X)}.$$
+$$\sigma(X) ~:=~ \sqrt{D(X)}.$$
 Zanjo velja
-$$\sigma(a \cdot X) = |a| \cdot \sigma(X), ~~a \in \mathbb{R}.$$
+$$\sigma(a \cdot X) ~=~ |a| \cdot \sigma(X), ~~~a \in \mathbb{R}.$$
 
 \end{definicija}
 \vspace{0.5cm}
@@ -656,30 +656,44 @@ $$\sigma(a \cdot X) = |a| \cdot \sigma(X), ~~a \in \mathbb{R}.$$
 ~
 \begin{enumerate}
 	\item \textsc{Enakomerna porazdelitev}:
-	$$E(X) = \frac{x_1 + \ldots + x_n}{n}$$
-	$$D(X) = \frac{x_1^2 + \ldots + x_n^2}{n} - \left( \frac{x_1 + \ldots + x_n}{n} \right)^2$$
+	\begin{align*}
+	E(X) ~&=~ \frac{x_1 + \ldots + x_n}{n} \\
+	D(X) ~&=~ \frac{x_1^2 + \ldots + x_n^2}{n} - \left( \frac{x_1 + \ldots + x_n}{n} \right)^2
+	\end{align*}
 	\item \textsc{Binomska porazdelitev}, $Bin(n, p)$:
-	$$E(X) = n \cdot p$$
-	$$D(X) = n \cdot p \cdot q$$
-	$$\sigma(X) = \sqrt{n \cdot p \cdot q}$$
+	\begin{align*}
+	E(X) ~&=~ n \cdot p \\
+	D(X) ~&=~ n \cdot p \cdot q \\
+	\sigma(X) ~&=~ \sqrt{n \cdot p \cdot q}
+	\end{align*}
 	\item \textsc{Poissonova porazdelitev}, $Poi(\lambda)$:
-	$$E(X) = D(X) = \lambda$$
+	$$E(X) = D(X) ~=~ \lambda$$
 	\item \textsc{Geometrijska porazdelitev}, $Geo(p)$:
-	$$E(X) = \frac{1}{p}$$
-	$$D(X) = \frac{q}{p^2}, ~~q = 1 - p$$
+	\begin{align*}
+	E(X) ~&=~ \frac{1}{p} \\
+	D(X) ~&=~ \frac{q}{p^2}
+	\end{align*}
 	\item \textsc{Pascalova porazdelitev}, $Pas(m, p)$:
-	$$E(X) = \frac{m}{p}$$
-	$$D(x) = \frac{m \cdot q}{p}$$
+	\begin{align*}
+	E(X) ~&=~ \frac{m}{p} \\
+	D(x) ~&=~ \frac{m \cdot q}{p}
+	\end{align*}
 	\item \textsc{Enakomerna zvezna porazdelitev} na $[a, b]$:
-	$$E(X) = \frac{a + b}{2}$$ $$
-	D(X) = \frac{(b-a)^2}{12}$$
-	\item \textsc{Normalna porazdelitev}, $N(\mu, \sigma)$, $\mu \in \mathbb{R}$, $\sigma > 0$:
-	$$E(X) = \mu$$
-	$$D(X) = \sigma^2$$
-	$$\sigma(X) = \sigma$$
+	\begin{align*}
+	E(X) ~&=~ \frac{a + b}{2} \\
+	D(X) ~&=~ \frac{(b-a)^2}{12}
+	\end{align*}
+	\item \textsc{Normalna porazdelitev}, $N(\mu, \sigma)$, ~$\mu \in \mathbb{R}$, ~$\sigma > 0$:
+	\begin{align*}
+	E(X) ~&=~ \mu \\
+	D(X) ~&=~ \sigma^2 \\
+	\sigma(X) ~&=~ \sigma
+	\end{align*}
 	\item \textsc{Eksponentna porazdelitev}, $Exp(\lambda)$:
-	$$E(X) = \frac{1}{\lambda}$$
-	$$D(X) = \frac{1}{\lambda^2}$$
+	\begin{align*}
+	E(X) ~&=~ \frac{1}{\lambda} \\
+	D(X) ~&=~ \frac{1}{\lambda^2}
+	\end{align*}
 \end{enumerate}
 
 \end{trditev}
@@ -689,8 +703,8 @@ $$\sigma(a \cdot X) = |a| \cdot \sigma(X), ~~a \in \mathbb{R}.$$
 
 \textit{Kovarianca} slučajnih spremenljivk $X$ in $Y$ je definirana kot 
 \begin{align*}
-K(X, Y) \equiv Cov(X, Y) :&= E((X - E(X)) \cdot (Y - E(Y))) \\
-&= E(X \cdot Y) - E(X) \cdot E(Y).
+K(X, Y) ~\equiv~ Cov(X, Y) ~:&=~ E((X - E(X)) \cdot (Y - E(Y))) \\
+&=~ E(X \cdot Y) - E(X) \cdot E(Y).
 \end{align*}
 
 
@@ -700,11 +714,11 @@ K(X, Y) \equiv Cov(X, Y) :&= E((X - E(X)) \cdot (Y - E(Y))) \\
 \begin{trditev}[Lastnostni kovariance]
 ~\\
 \begin{enumerate}
-	\item $K(X,X) = D(X$
+	\item $K(X,X) ~=~ D(X$
 	\item $X$ in $Y$ sta \textit{nekorelirana} $~\Leftrightarrow~$ $K(X, Y) = 0$
 	\item $K$ je \textit{simetrična} in \textit{linearna}:
 	$$K(Y, X) ~=~ K(X, Y)$$
-	$$K(aX + bY, Z) ~=~ a \cdot K(X, Z) + b \cdot K(Y, Z), ~~\text{za}~~ a, b \in \mathbb{R}$$
+	$$K(aX + bY, Z) ~=~ a \cdot K(X, Z) + b \cdot K(Y, Z), ~~~\text{za}~~ a, b \in \mathbb{R}$$
 	\item Kovarianca obstaja, če obstajata obe disperziji $D(X)$ in $D(Y)$. Tedaj velja
 	$$|K(X,Y)| ~\leq~ \sqrt{D(X) \cdot D(Y)} ~=~ \sigma(x) \cdot \sigma(y)$$
 	Enakost velja $~\Leftrightarrow~$ $Y - \mathbb{E}(Y) ~=~ \pm \frac{\sigma(Y)}{\sigma(X)} \cdot (X - \mathbb{E}(X))$ z verjetnostjo $1$
@@ -724,7 +738,7 @@ K(X, Y) \equiv Cov(X, Y) :&= E((X - E(X)) \cdot (Y - E(Y))) \\
 
 \textit{Standardizacija} slučajne spremenljivke $X$ je slučajna spremenljvka
 $$X_s ~=~ \frac{X - \mathbb{E}(X)}{\sigma(X)}.$$
-Tedaj je $\mathbb{E}(X_s) = 0$, $D(X_s) = 1$, saj je
+Tedaj je $\mathbb{E}(X_s) = 0$, ~$D(X_s) = 1$, saj je
 $$D(X_s) ~=~ \frac{1}{\sigma(X)^2} \cdot D(X - \mathbb{E}(X)) ~=~ 1.$$
 
 \end{definicija}
@@ -814,7 +828,7 @@ Naj bo $X$ slučajna spremenljivka z vrednostmi v $\mathbb{N} \cup \{0\}$:
 $$G_X(s) ~:=~ p_0 + p_1 \cdot s + p_2 \cdot s^2 + p_3 \cdot s^3 + \ldots ~=~ \sum_{k=0}^{\infty} p_k \cdot s^k$$
 za $\forall s \in \mathbb{R}$, za katere vrsta \textit{absolutno konvergira}. \\
 
-\noindent Očitno je $G_X(0) = p_0$, $G_X(1) = \mathlarger{\sum_{k=0}^{\infty} p_k} = 1$, $G_X(s) = \mathbb{E}(s^X)$, saj je
+\noindent Očitno je $G_X(0) = p_0$, ~$G_X(1) = \mathlarger{\sum_{k=0}^{\infty} p_k} = 1$, ~$G_X(s) = \mathbb{E}(s^X)$, saj je
 $$s^X: ~\begin{pmatrix}
 	~s^0 & s^1 & s^2 & s^3 & \ldots~ \\
 	~p_0 & p_1 & p_2 & p_3 & \ldots~
@@ -827,7 +841,7 @@ Za $s \in [-1, 1]$ velja $|p_k \cdot s^k| \leq p_k$ in $\mathlarger{\sum_{k=0}^{
 \begin{izrek}[Izrek o enoličnosti]
 
 Naj imata $X$ in $Y$ rodovni funkciji $G_X$ in $G_Y$. Potem je
-$$G_X(s) = G_Y(s) ~\text{za}~ \forall s \in [-1, 1] ~\Leftrightarrow~ \mathbb{P}(X=k) = \mathbb{P}(Y=k) ~\text{za}~ \forall k = 0, 1, 2, \ldots $$
+$$G_X(s) = G_Y(s) ~~\text{za}~~ \forall s \in [-1, 1] ~\Leftrightarrow~ \mathbb{P}(X=k) ~=~ \mathbb{P}(Y=k) ~~\text{za}~~ \forall k = 0, 1, 2, \ldots $$
 Tedaj velja
 $$\mathbb{P}(X = k) ~=~ \frac{1}{k!} \cdot G_X^{(k)}(0).$$
 
@@ -858,7 +872,7 @@ $$\mathbb{E}(X) ~=~ G_X'(1-)$$
 \begin{izrek}
 
 Naj bosta $X$ in $Y$ neodvisni slučajni spremenljivki z rodovnimi funkcijami $G_X$ in $G_Y$. Potem je 
-$$G_{X+Y}(s) ~=~ G_X(s) \cdot G_Y(s) ~~\text{za}~ s \in [-1, 1].$$
+$$G_{X+Y}(s) ~=~ G_X(s) \cdot G_Y(s) ~~~\text{za}~~ s \in [-1, 1].$$
 
 \end{izrek}
 \vspace{0.5cm}
@@ -876,7 +890,7 @@ $$G_{S_n}(s) ~=~ (G_X(s))^n.$$
 \begin{izrek}
 
 Naj bodo za $\forall n \in \mathbb{N}$ slučajne spremenljivke $N, X_1, X_2, \ldots, X_n$ neodvisne. Naj ima $N$ rodovno funkcijo $G_N$, $X_n$ pa rodovno funkcijo $G_X$ za $\forall n \in \mathbb{N}$. Potem ima slučajna spremenljivka $S = X_1 + X_2 + \ldots + X_N$ rodovno funkcijo
-$$G_S(s) ~=~ G_N(G_X(s)), ~~s \in [-1, 1].$$ 
+$$G_S(s) ~=~ G_N(G_X(s)), ~~~s \in [-1, 1].$$ 
 
 \end{izrek}
 \vspace{0.5cm}
@@ -901,8 +915,8 @@ Naj bo $k \in \mathbb{N}$ in $a \in \mathbb{R}$. \textit{Moment reda k glede na 
 $$m_k(a) ~=~ \mathbb{E}((X-a)^k),$$
 če obstaja. Za $a$ občajno vzamemo:
 \begin{enumerate}
-	\item \textit{začetni moment}: \\$a = 0$: $$z_k = m_k(0) = \mathbb{E}(X^k)$$
-	\item \textit{centralni moment reda $k$}: \\$a = \mathbb{E}(X)$: $$m_k = m_k(\mathbb{E}(X)) = \mathbb{E}((X - \mathbb{E}(X))^k)$$
+	\item \textit{začetni moment}: \\$a = 0$: $$z_k ~=1 m_k(0) ~=~ \mathbb{E}(X^k)$$
+	\item \textit{centralni moment reda $k$}: \\$a = \mathbb{E}(X)$: $$m_k ~=~ m_k(\mathbb{E}(X)) ~=~ \mathbb{E}((X - \mathbb{E}(X))^k)$$
 \end{enumerate}
 Očitno je $z_1 = \mathbb{E}(X)$ in $m_2 = D(X)$.
 
@@ -929,8 +943,8 @@ Očitno je $z_1 = \mathbb{E}(X)$ in $m_2 = D(X)$.
 $$A(X) ~:=~ \mathbb{E}({X_s}^3) ~=~ \mathbb{E}\left( \left( \frac{X - \mathbb{E}(X)}{\sigma(X)} \right)^3 \right) ~=~ \frac{m_3}{(m_2)^{\frac{3}{2}}}$$
 Velja:
 \begin{itemize}
-	\item $A(N(\mu, \sigma)) = 0$
-	\item $A(\lambda X) = A(X)$ za $\lambda > 0$.
+	\item $A(N(\mu, \sigma)) ~=~ 0$
+	\item $A(\lambda X) ~=~ A(X)$ ~za $\lambda > 0$.
 \end{itemize}
 
 \end{definicija}
@@ -942,8 +956,8 @@ Velja:
 $$K(X) ~=~ \frac{m_4}{(m_2)^2} ~=~ \mathbb{E}({X_s}^4) ~=~ \mathbb{E}\left( \left( \frac{X - \mathbb{E}(X)}{\sigma(X)} \right)^4 \right)$$
 Velja:
 \begin{itemize}
-	\item $K(N(\mu, \sigma)) = 3$
-	\item $K(\lambda X) = K(X)$ za $\lambda > 0$.
+	\item $K(N(\mu, \sigma)) ~=~ 3$
+	\item $K(\lambda X) ~=~ K(X)$ ~za $\lambda > 0$.
 \end{itemize}
 
 \end{definicija}
@@ -974,7 +988,7 @@ $$F(x-) ~\leq~ \frac{1}{2} ~\leq~ F(x).$$
 \textit{Kvantil reda $p$} je vsaka vrednost $x_p$, za katero velja
 $$\mathbb{P}(X \leq x_p) ~\geq~ p ~~~\text{in}~~~ \mathbb{P}(X \geq x_p) ~\geq~ 1 - p$$
 oziroma ekvivalentno:
-$$F(x_p-) ~\leq~ p ~\leq~ F(x_p), ~~0 < p < 1.$$
+$$F(x_p-) ~\leq~ p ~\leq~ F(x_p), ~~~0 < p < 1.$$
 Če je $X$ zvezno porazdeljena, je pogoj za kvantil:
 $$F(x_p) ~=~ p ~~~\text{oziroma}~~~ \int_{-\infty}^{x_p} p_X(t) dt ~=~ p.$$
 \textit{(Semiinter)kvartilni razmik} je
@@ -1013,6 +1027,45 @@ $$M_X(t) ~=~ \sum_{k=0}^{\infty} \frac{z_k}{k!} t^k$$
 za $\forall t \in (-\delta, \delta)$.
 
 \end{izrek}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+$$M_{aX+b}(t) ~=~ e^{bt} M_X(at), ~~~a \neq 0, ~b \in \mathbb{R}$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Za $X \sim N(\mu, \sigma)$ velja
+$$\mathlarger{M_X(t) ~=~ e^{\mu t + \frac{\sigma^2 t^2}{2}}}.$$ 
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{izrek}
+
+Če sta $X$ in $Y$ \textit{neodvisni slučajni spremenljivki}, potem je
+$$M_{X+Y}(t) ~=~ M_X(t) \cdot M_Y(t).$$
+
+\end{izrek}
+\vspace{0.5cm}
+
+\begin{trditev}
+
+Imejmo $X \sim N(\mu_x, \sigma_x)$ in $Y \sim N(\mu_y, \sigma_y)$ \textit{neodvisni slučajni spremenljivki}. Potem je
+$$X + Y ~\sim~ N\left(\mu_x + \mu_y, \sqrt{{\sigma_x}^2 + {\sigma_y}^2}\right).$$
+
+\end{trditev}
+\vspace{0.5cm}
+
+\begin{opomba}
+\begin{align*}
+	\mathbb{E}(X+Y) ~&=~ \mathbb{E}(X) + \mathbb{E}(Y) ~=~ \mu_x + \mu_y \\
+	D(X+Y) ~&=~ D(X) + D(Y) ~=~ {\sigma_x}^2 + {\sigma_y}^2.
+\end{align*}
+\end{opomba}
 \vspace{0.5cm}
 
 % #################################################################################################
