@@ -495,7 +495,7 @@ $(X_1 \leq x_1), \ldots, (X_n \leq x_n)$ so neodvisne.
 \begin{trditev}
 
 Naj bo $(X, Y)$ diskreten slučajni vektor; \\$p_{i,j} = \mathbb{P}(X = x_i, Y = y_j)$, $p_i ~=~ \mathbb{P}(X = x_i), q_j ~=~ \mathbb{P}(Y = y_j)$, $i = 1, 2, \ldots$, $j = 1, 2, \ldots$.
-$$X ~\text{in}~ Y ~\text{sta neodvisni slučajni spremenljivki}~ \Leftrightarrow ~p_{i,j} = p_i \cdot q_j, ~~\forall i, ~\forall j $$
+$$X ~\text{in}~ Y ~\text{sta neodvisni slučajni spremenljivki}~ \iff ~p_{i,j} = p_i \cdot q_j, ~~\forall i, ~\forall j $$
 
 \end{trditev}
 \vspace{0.5cm}
@@ -546,7 +546,7 @@ Naj bo $f: \mathbb{R} \rightarrow \mathbb{R}$ funkcija.
 
 \begin{posledica}
 
-Slučajna spremenljivka $X$ ima matematično upanje $\Leftrightarrow$ ko ga ima slučajna spremenljivka $|X|$. Tedaj velja
+Slučajna spremenljivka $X$ ima matematično upanje $\iff$ ko ga ima slučajna spremenljivka $|X|$. Tedaj velja
 $$|\mathbb{E}(x)| ~\leq~ \mathbb{E}(|x|).$$
 
 \end{posledica}
@@ -592,7 +592,7 @@ kjer so $a_1, a_2, \ldots, a_n \in \mathbb{R}$.
 
 Če obstaja $\mathbb{E}(X^2)$ in $\mathbb{E}(Y^2)$, potem obstaja tudi $\mathbb{E}(|XY|)$ in velja
 $$\mathbb{E}(|XY|) ~\leq~ \sqrt{\mathbb{E}(X^2) \cdot \mathbb{E}(Y^2)} ~~(\textit{Cauchy-Schwarzova neenakost})$$
-Enakost velja $~\Leftrightarrow~$ $|Y| = \sqrt{\cfrac{\mathbb{E}(Y^2)}{\mathbb{E}(X^2)}} \cdot |X|$ z verjetnostjo $1$.
+Enakost velja $~\iff~$ $|Y| = \sqrt{\cfrac{\mathbb{E}(Y^2)}{\mathbb{E}(X^2)}} \cdot |X|$ z verjetnostjo $1$.
 
 \end{trditev}
 \vspace{0.5cm}
@@ -635,11 +635,11 @@ $$D(X) ~=~ \mathbb{E}(X^2) - (\mathbb{E}(X)^2)$$
 ~\\
 \begin{enumerate}
 	\item $D(X) ~\geq~ 0$ \\
-	$D(X) = 0 ~\Leftrightarrow~ \mathbb{P}(X = E(X)) = 1$
+	$D(X) = 0 ~\iff~ \mathbb{P}(X = E(X)) = 1$
 	\item $D(a \cdot X) ~=~ a^2 \cdot D(X), ~~~a \in \mathbb{R}$
 	\item Za $\forall a \in \mathbb{R}$ je 
 	$$\mathbb{E}((X - a)^2) ~\geq~ D(X)$$
-	Enačaj velje $~\Leftrightarrow~$ $a = \mathbb{E}(X)$.
+	Enačaj velje $~\iff~$ $a = \mathbb{E}(X)$.
 \end{enumerate}
 
 \end{trditev}
@@ -718,13 +718,13 @@ K(X, Y) ~\equiv~ Cov(X, Y) ~:&=~ \mathbb{E}((X - \mathbb{E}(X)) \cdot (Y - \math
 ~\\
 \begin{enumerate}
 	\item $K(X,X) ~=~ D(X$
-	\item $X$ in $Y$ sta \textit{nekorelirana} $~\Leftrightarrow~$ $K(X, Y) = 0$
+	\item $X$ in $Y$ sta \textit{nekorelirana} $~\iff~$ $K(X, Y) = 0$
 	\item $K$ je \textit{simetrična} in \textit{linearna}:
 	$$K(Y, X) ~=~ K(X, Y)$$
 	$$K(aX + bY, Z) ~=~ a \cdot K(X, Z) + b \cdot K(Y, Z), ~~~\text{za}~~ a, b \in \mathbb{R}$$
 	\item Kovarianca obstaja, če obstajata obe disperziji $D(X)$ in $D(Y)$. Tedaj velja
 	$$|K(X,Y)| ~\leq~ \sqrt{D(X) \cdot D(Y)} ~=~ \sigma(X) \cdot \sigma(Y)$$
-	Enakost velja $~\Leftrightarrow~$ $Y - \mathbb{E}(Y) ~=~ \pm \frac{\sigma(Y)}{\sigma(X)} \cdot (X - \mathbb{E}(X))$ z verjetnostjo $1$
+	Enakost velja $~\iff~$ $Y - \mathbb{E}(Y) ~=~ \pm \frac{\sigma(Y)}{\sigma(X)} \cdot (X - \mathbb{E}(X))$ z verjetnostjo $1$
 	\item Če $X$ in $Y$ imata disperzijo, potem jo ima tudi $X+Y$ in velja
 	$$D(X+Y) ~=~ D(X) + D(Y) + 2K(X,Y)$$
 	Če sta $X$ in $Y$ nekorelirani, potem je
@@ -758,9 +758,9 @@ $$r(X,Y) ~=~ \frac{K(X, Y)}{\sigma(X) \cdot \sigma(Y)} ~=~ \frac{\mathbb{E}((X -
 \begin{trditev}[Lastnosti korelacijskih koeficientov]
 ~\\
 \begin{enumerate}
-	\item $r(X,Y) = 0 ~\Leftrightarrow~$ $X$ in $Y$ sta nekorelirani
+	\item $r(X,Y) = 0 ~\iff~$ $X$ in $Y$ sta nekorelirani
 	\item $-1 \leq r(X,Y) \leq 1$ sledi iz 4. lastnosti kovariance
-	\item $r(X,Y) = \pm 1$ $~\Leftrightarrow~$ $Y = \pm \frac{\sigma(Y)}{\sigma(X)} \cdot (X - \mathbb{E}(X)) + \mathbb{E}(Y)$ z verjetnostjo $1$
+	\item $r(X,Y) = \pm 1$ $~\iff~$ $Y = \pm \frac{\sigma(Y)}{\sigma(X)} \cdot (X - \mathbb{E}(X)) + \mathbb{E}(Y)$ z verjetnostjo $1$
 \end{enumerate}
 \end{trditev}
 \vspace{0.5cm}
@@ -844,7 +844,7 @@ Za $s \in [-1, 1]$ velja $|p_k \cdot s^k| \leq p_k$ in $\mathlarger{\sum_{k=0}^{
 \begin{izrek}[Izrek o enoličnosti]
 
 Naj imata $X$ in $Y$ rodovni funkciji $G_X$ in $G_Y$. Potem je
-$$G_X(s) = G_Y(s) ~~\text{za}~~ \forall s \in [-1, 1] ~\Leftrightarrow~ \mathbb{P}(X=k) ~=~ \mathbb{P}(Y=k) ~~\text{za}~~ \forall k = 0, 1, 2, \ldots $$
+$$G_X(s) = G_Y(s) ~~\text{za}~~ \forall s \in [-1, 1] ~\iff~ \mathbb{P}(X=k) ~=~ \mathbb{P}(Y=k) ~~\text{za}~~ \forall k = 0, 1, 2, \ldots $$
 Tedaj velja
 $$\mathbb{P}(X = k) ~=~ \frac{1}{k!} \cdot G_X^{(k)}(0).$$
 
